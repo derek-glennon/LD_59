@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ck6215esune7l"]
+
+[ext_resource type="Texture2D" uid="uid://bgtdojxa4ebna" path="res://textures/sand_normal.jpg" id="1_sq304"]
+
+[resource]
+metallic_specular = 0.0
+roughness = 0.3
+normal_texture = ExtResource("1_sq304")
+uv1_scale = Vector3(10, 10, 10)

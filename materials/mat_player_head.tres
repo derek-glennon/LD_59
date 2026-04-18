@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://2o2j5hxu0o86"]
+
+[ext_resource type="Shader" uid="uid://b0uds0rgil053" path="res://shaders/character_shader.gdshader" id="1_c8mco"]
+[ext_resource type="Texture2D" uid="uid://7c06jeo7gn5g" path="res://textures/face.png" id="2_6qijo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_c8mco")
+shader_parameter/head_background = 0.999999999999997
+shader_parameter/face_texture = ExtResource("2_6qijo")
+shader_parameter/roughness = 0.4

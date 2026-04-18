@@ -10,8 +10,12 @@ var pp_pipeline : RID
 
 const PALETTE1_IMAGE_BINDING := 0
 const PALETTE2_IMAGE_BINDING := 1
+const PALETTE3_IMAGE_BINDING := 2
+const PALETTE4_IMAGE_BINDING := 3
 var palette1_image_uniform : RDUniform
 var palette2_image_uniform : RDUniform
+var palette3_image_uniform : RDUniform
+var palette4_image_uniform : RDUniform
 
 var texture_dirty := true
 var settings_dirty := false
@@ -51,7 +55,10 @@ func _render_view(p_view : int) -> void:
 	# PP PASS
 	uniform_sets = [
 		scene_uniform_set,
-		[palette1_image_uniform, palette2_image_uniform]
+		[palette1_image_uniform,
+		 palette2_image_uniform,
+		 palette3_image_uniform,
+		 palette4_image_uniform]
 	]
 
 	run_compute_shader(
@@ -101,28 +108,19 @@ func create_palette_texture(palette_index : int) -> RDUniform:
 			result = get_sampler_uniform(tex, sampler, PALETTE1_IMAGE_BINDING)
 		2:
 			result = get_sampler_uniform(tex, sampler, PALETTE2_IMAGE_BINDING)
+		3:
+			result = get_sampler_uniform(tex, sampler, PALETTE3_IMAGE_BINDING)
+		4:
+			result = get_sampler_uniform(tex, sampler, PALETTE4_IMAGE_BINDING)
+			
 			
 	return result
 	
 func create_textures() -> void:
-	#var sampler_state := RDSamplerState.new()
-	#var sampler = rd.sampler_create(sampler_state)
-	#
-	#var image_file : Texture2D = load("res://textures/palette_1.png")
-	#var image := image_file.get_image()
-	#image.convert(Image.FORMAT_RGBA8)
-	#
-	#var fmt = RDTextureFormat.new()
-	#fmt.width = image.get_width()
-	#fmt.height = image.get_height()
-	#fmt.mipmaps = 1
-	#fmt.format = RenderingDevice.DATA_FORMAT_R8G8B8A8_UNORM
-	#fmt.usage_bits = RenderingDevice.TEXTURE_USAGE_CAN_COPY_FROM_BIT | RenderingDevice.TEXTURE_USAGE_SAMPLING_BIT | RenderingDevice.TEXTURE_USAGE_CAN_UPDATE_BIT
-	#var view = RDTextureView.new()
-	#var tex = rd.texture_create(fmt, view, [image.get_data()])
-	
-	palette1_image_uniform = create_palette_texture(1)#get_sampler_uniform(tex, sampler, PALETTE1_IMAGE_BINDING)
+	palette1_image_uniform = create_palette_texture(1)
 	palette2_image_uniform = create_palette_texture(2)
+	palette3_image_uniform = create_palette_texture(3)
+	palette4_image_uniform = create_palette_texture(4)
 
 	texture_dirty = false
 

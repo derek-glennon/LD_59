@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
 [ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
 [ext_resource type="PackedScene" uid="uid://cokki4de7ogex" path="res://meshes/player_mesh.glb" id="5_37q66"]
+[ext_resource type="Material" uid="uid://ck6215esune7l" path="res://materials/mat_player_body.tres" id="6_ax415"]
+[ext_resource type="Material" uid="uid://2o2j5hxu0o86" path="res://materials/mat_player_head.tres" id="7_cclv5"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -27,7 +29,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_37q66"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_ax415"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -38,7 +40,7 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_37q66")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_ax415")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 
@@ -54,12 +56,18 @@ compositor = SubResource("Compositor_ax415")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0.0022025108)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1673132568]
-transform = Transform3D(0.35166967, -0.009048779, 0.9360804, -0.93612415, -0.0033993153, 0.35165325, 0, -0.99995327, -0.009666217, 0, 14.741041, 0)
+transform = Transform3D(-0.34667102, -0.15907812, -0.9243989, -0.9361242, -0.003399315, 0.35165322, -0.059082665, 0.98726016, -0.14773844, 0, 2.5004473, 0)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
 material_override = ExtResource("4_g1j5r")
 mesh = SubResource("PlaneMesh_phnmh")
 
-[node name="player_mesh" parent="." unique_id=1257678129 instance=ExtResource("5_37q66")]
+[node name="player_mesh" parent="." unique_id=922594674 instance=ExtResource("5_37q66")]
 transform = Transform3D(0.04760561, 0, 0, 0, 0.04760561, 0, 0, 0, 0.04760561, 2.0512342, 0.31485128, -0.22057343)
+
+[node name="PlayerMesh" parent="player_mesh" index="0" unique_id=313007581]
+surface_material_override/0 = ExtResource("6_ax415")
+surface_material_override/1 = ExtResource("7_cclv5")
+
+[editable path="player_mesh"]
