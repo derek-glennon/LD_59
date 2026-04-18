@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dwmnn1iq6enmy"]
+
+[ext_resource type="PackedScene" uid="uid://d2cmxuc48ps3t" path="res://meshes/tree_mesh.glb" id="1_odf6j"]
+[ext_resource type="Material" uid="uid://ccvaphsje8btm" path="res://materials/mat_leaves.tres" id="2_3xb55"]
+[ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="2_a4ng0"]
+
+[node name="tree" unique_id=244863639 instance=ExtResource("1_odf6j")]
+
+[node name="Tree_Mesh" parent="." index="0" unique_id=2112632660]
+surface_material_override/0 = ExtResource("2_a4ng0")
+surface_material_override/1 = ExtResource("2_3xb55")

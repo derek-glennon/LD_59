@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dbwey2480xryg"]
+
+[ext_resource type="Shader" uid="uid://cywvpxh6v62r2" path="res://shaders/uv_gradient.gdshader" id="1_h3f2e"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_h3f2e")
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_top = Color(1, 1, 1, 1)
+shader_parameter/smoothstep_min = 0.999999999999997
+shader_parameter/smoothstep_max = -0.5439999999999984
+shader_parameter/roughness = 0.5

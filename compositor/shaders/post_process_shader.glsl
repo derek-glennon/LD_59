@@ -11,6 +11,8 @@ layout(set = 1, binding = 0) uniform sampler2D palette_1;
 layout(set = 1, binding = 1) uniform sampler2D palette_2;
 layout(set = 1, binding = 2) uniform sampler2D palette_3;
 layout(set = 1, binding = 3) uniform sampler2D palette_4;
+layout(set = 1, binding = 4) uniform sampler2D palette_5;
+layout(set = 1, binding = 5) uniform sampler2D palette_6;
 
 const float bayerMatrix8x8[64] = float[64](
     0.0/ 64.0, 48.0/ 64.0, 12.0/ 64.0, 60.0/ 64.0,  3.0/ 64.0, 51.0/ 64.0, 15.0/ 64.0, 63.0/ 64.0,
@@ -59,6 +61,8 @@ void main() {
     // 2 - Sand
     // 3 - Player Body
     // 4 - Player Head
+    // 5 - Wood
+    // 6 - Leaves
     vec4 normal = get_normal_roughness_color(image_coord);
     float rounded_roughness = roundToDecimalPlace(normal.a, 2);
     float roughness_flag = trunc(rounded_roughness * 10.0);
@@ -75,6 +79,14 @@ void main() {
     else if (roughness_flag == 4)
     {
         dither_color = dither(screen_uv, lum, palette_4);
+    }
+    else if (roughness_flag == 5)
+    {
+        dither_color = dither(screen_uv, lum, palette_5);
+    }
+    else if (roughness_flag == 6)
+    {
+        dither_color = dither(screen_uv, lum, palette_6);
     }
 
     vec4 final_color = vec4(dither_color, viewport_color.a);
