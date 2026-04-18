@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://3oi66t64x5ug"]
+
+[ext_resource type="Texture2D" uid="uid://bgtdojxa4ebna" path="res://textures/sand_normal.jpg" id="1_notdj"]
+
+[resource]
+albedo_color = Color(0.84112525, 0.77062994, 0.542365, 1)
+emission_enabled = true
+normal_texture = ExtResource("1_notdj")
+uv1_scale = Vector3(10, 10, 10)

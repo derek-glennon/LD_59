@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="LD_59"
+run/main_scene="uid://dk5vk6uxs6u2k"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[filesystem]
+
+import/blender/enabled=false
 
 [physics]
 

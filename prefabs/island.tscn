@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://2v8pd5apmen"]
+
+[ext_resource type="PackedScene" uid="uid://dlyrcengfqntk" path="res://meshes/island.glb" id="1_iqyyo"]
+[ext_resource type="Material" uid="uid://3oi66t64x5ug" path="res://materials/mat_island_sand.tres" id="2_gnvcw"]
+
+[node name="Island" unique_id=953826695 instance=ExtResource("1_iqyyo")]
+
+[node name="IslandMesh" parent="." index="0" unique_id=1632463556]
+material_override = ExtResource("2_gnvcw")

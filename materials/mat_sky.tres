@@ -1,14 +1,21 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bkboe4foqiksr"]
 
 [ext_resource type="Shader" uid="uid://dcqabaas3u5wl" path="res://shaders/sky_shader.gdshader" id="1_2hcro"]
-[ext_resource type="Texture2D" uid="uid://0unju4iaiouj" path="res://icon.svg" id="2_44dm1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2hcro"]
+noise_type = 5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_44dm1"]
+noise = SubResource("FastNoiseLite_2hcro")
+seamless = true
 
 [resource]
 shader = ExtResource("1_2hcro")
 shader_parameter/bottom_color = Color(0.3519343, 0.5132045, 0.7994333, 1)
 shader_parameter/top_color = Color(2.887845e-06, 0.76766646, 0.8520831, 1)
-shader_parameter/cloud_texture = ExtResource("2_44dm1")
+shader_parameter/cloud_texture = SubResource("NoiseTexture2D_44dm1")
 shader_parameter/cloud_scale = 0.1
-shader_parameter/cloud_direction = Vector3(0, 1, 0.0001)
-shader_parameter/cloud_color_1 = Color(0, 0, 0, 1)
-shader_parameter/cloud_color_2 = Color(1, 1, 1, 1)
+shader_parameter/cloud_direction = Vector3(0, 1, 0.001)
+shader_parameter/cloud_step = 0.654999999999998
+shader_parameter/cloud_speed = Vector2(0.005, 0.005)
+shader_parameter/cloud_tint = Color(1, 1, 1, 1)
