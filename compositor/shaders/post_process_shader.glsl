@@ -14,6 +14,13 @@ layout(set = 1, binding = 3) uniform sampler2D palette_4;
 layout(set = 1, binding = 4) uniform sampler2D palette_5;
 layout(set = 1, binding = 5) uniform sampler2D palette_6;
 
+const mat4x4 bayerMatrix4x4 = mat4x4(
+    0.0,  8.0,  2.0, 10.0,
+    12.0, 4.0,  14.0, 6.0,
+    3.0,  11.0, 1.0, 9.0,
+    15.0, 7.0,  13.0, 5.0
+) / 16.0;
+
 const float bayerMatrix8x8[64] = float[64](
     0.0/ 64.0, 48.0/ 64.0, 12.0/ 64.0, 60.0/ 64.0,  3.0/ 64.0, 51.0/ 64.0, 15.0/ 64.0, 63.0/ 64.0,
   32.0/ 64.0, 16.0/ 64.0, 44.0/ 64.0, 28.0/ 64.0, 35.0/ 64.0, 19.0/ 64.0, 47.0/ 64.0, 31.0/ 64.0,
@@ -28,8 +35,8 @@ const float bayerMatrix8x8[64] = float[64](
 vec3 dither(vec2 uv, float lum, sampler2D palette) {
   vec3 color = vec3(lum);
 
-  int x = int(uv.x * scene.data.viewport_size.x) % 8;
-  int y = int(uv.y * scene.data.viewport_size.y) % 8;
+  int x = int(uv.x * scene.data.viewport_size.x) % 4;
+  int y = int(uv.y * scene.data.viewport_size.y) % 4;
   float threshold = bayerMatrix8x8[y * 8 + x] - 0.88;
 
   color.rgb += threshold * 0.2;

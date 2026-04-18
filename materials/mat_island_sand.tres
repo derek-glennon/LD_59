@@ -1,10 +1,23 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://3oi66t64x5ug"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://3oi66t64x5ug"]
 
-[ext_resource type="Texture2D" uid="uid://bgtdojxa4ebna" path="res://textures/sand_normal.jpg" id="1_notdj"]
+[ext_resource type="Shader" uid="uid://cywvpxh6v62r2" path="res://shaders/uv_gradient.gdshader" id="1_notdj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d775f"]
+noise_type = 2
+frequency = 0.0093
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ns1pn"]
+noise = SubResource("FastNoiseLite_d775f")
+seamless = true
 
 [resource]
-albedo_color = Color(0.84112525, 0.77062994, 0.542365, 1)
-metallic_specular = 0.0
-roughness = 0.2
-normal_texture = ExtResource("1_notdj")
-uv1_scale = Vector3(10, 10, 10)
+render_priority = 0
+shader = ExtResource("1_notdj")
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_ns1pn")
+shader_parameter/uv_scale = Vector2(0.5, 3.5)
+shader_parameter/uv_speed = Vector2(0, 0.0305)
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_top = Color(1, 1, 1, 1)
+shader_parameter/smoothstep_min = 0.0
+shader_parameter/smoothstep_max = 1.0
+shader_parameter/roughness = 0.2
