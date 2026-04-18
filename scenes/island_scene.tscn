@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://bkboe4foqiksr" path="res://materials/mat_sky.tres" id="1_0kpsk"]
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
 [ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
+[ext_resource type="PackedScene" uid="uid://cokki4de7ogex" path="res://meshes/player_mesh.glb" id="5_37q66"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -53,3 +54,6 @@ mesh = SubResource("PlaneMesh_phnmh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=807650049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.550545)
 mesh = SubResource("SphereMesh_phnmh")
+
+[node name="player_mesh" parent="." unique_id=1257678129 instance=ExtResource("5_37q66")]
+transform = Transform3D(0.04760561, 0, 0, 0, 0.04760561, 0, 0, 0, 0.04760561, 2.0512342, 0.31485128, -0.22057343)
