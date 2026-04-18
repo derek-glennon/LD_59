@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b5vyalv4asxvl"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_7ybvl"]
+[ext_resource type="ArrayMesh" uid="uid://c47qqv77mofmd" path="res://meshes/fruit_mesh.res" id="2_a1cin"]
+[ext_resource type="Material" uid="uid://b83pnxw6qixis" path="res://materials/mat_fruit.tres" id="2_jp5cg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1cin"]
+radius = 0.16552734
+height = 0.46318054
+
+[node name="Fruit" unique_id=888649470 instance=ExtResource("1_7ybvl")]
+attached_offset = Vector3(0, 1, -1)
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+material_override = ExtResource("2_jp5cg")
+mesh = ExtResource("2_a1cin")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1798205095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2241709, 0)
+shape = SubResource("CapsuleShape3D_a1cin")

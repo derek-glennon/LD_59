@@ -16,6 +16,7 @@ extends CharacterBody3D
 @export var throw_strength = 1000.0
 
 var _interactables_in_range : Array[InteractableBase] = []
+var _trees_in_range : Array[IslandTree] = []
 var _grabbed_interactable : InteractableBase
 
 func _physics_process(delta: float) -> void:
@@ -35,6 +36,9 @@ func _physics_process(delta: float) -> void:
 			if _interactables_in_range.size() > 0:
 				var closest_interactable = find_closest_interactable_in_range()
 				grab_interactable(closest_interactable)
+			elif _trees_in_range.size() > 0:
+				var closest_tree = find_closest_tree_in_range()
+				closest_tree.shake_tree()
 		else:
 			throw_interactable()
 	
@@ -79,6 +83,23 @@ func find_closest_interactable_in_range() -> InteractableBase:
 			result = interactable
 	
 	return result
+	
+func find_closest_tree_in_range() -> IslandTree:
+	var result : IslandTree
+	
+	#early out
+	if _trees_in_range.size() == 0:
+		return
+		
+	var closest_distance = 100000000.0
+	for tree in _trees_in_range:
+		var dist = tree.global_position.distance_squared_to(global_position)
+		if dist < closest_distance:
+			closest_distance = dist
+			result = tree
+	
+	return result
+	
 
 func grab_interactable(interactable : InteractableBase) -> void:
 	_grabbed_interactable = interactable
@@ -124,9 +145,17 @@ func _on_player_grab_area_body_entered(body: Node3D) -> void:
 		if !_grabbed_interactable:
 			if !_interactables_in_range.has(interactable):
 				_interactables_in_range.append(interactable)
+	var tree = body.owner as IslandTree
+	if tree:
+		if !_trees_in_range.has(tree):
+			_trees_in_range.append(tree)
 
 func _on_player_grab_area_body_exited(body: Node3D) -> void:
 	var interactable = body as InteractableBase
 	if interactable:
 		if _interactables_in_range.has(interactable):
 			_interactables_in_range.erase(interactable)
+	var tree = body.owner as IslandTree
+	if tree:
+		if _trees_in_range.has(tree):
+			_trees_in_range.erase(tree)

@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
 [ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_37q66"]
-[ext_resource type="PackedScene" uid="uid://ce0acy6tdkv2s" path="res://prefabs/test_interactable.tscn" id="6_noqu5"]
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
 [ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
@@ -82,10 +81,6 @@ camera = NodePath("Camera3D")
 [node name="Camera3D" type="Camera3D" parent="Player" unique_id=34050]
 transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -3.0559022e-10, 1.45763, 2.3734)
 
-[node name="InteractableBase" parent="." unique_id=888649470 instance=ExtResource("6_noqu5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7147596, 1.0982888, 2.1962972)
-attached_offset = Vector3(0, 0, 0)
-
 [node name="Trees" type="Node3D" parent="." unique_id=1326531027]
 
 [node name="tree" parent="Trees" unique_id=953250290 instance=ExtResource("7_ax415")]
@@ -96,6 +91,7 @@ transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50
 
 [node name="tree3" parent="Trees" unique_id=1608331695 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.9981121, 0, -0.061419666, 0, 1, 0, 0.061419666, 0, -0.9981121, -11.115919, 0.34009326, 8.393693)
+should_spawn_fruit = true
 
 [node name="tree4" parent="Trees" unique_id=1339728349 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 4.1867905, 0.34009326, 10.488681)
@@ -108,6 +104,7 @@ transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29
 
 [node name="tree7" parent="Trees" unique_id=867701571 instance=ExtResource("7_ax415")]
 transform = Transform3D(0.9987164, 0, -0.0506517, 0, 1, 0, 0.0506517, 0, 0.9987164, 0.98089504, 3.6153274, -10.306995)
+should_spawn_fruit = true
 
 [node name="tree8" parent="Trees" unique_id=1474743497 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.2907467, 0, -0.9568001, 0, 1, 0, 0.9568001, 0, -0.2907467, -7.209098, 2.832192, -8.615587)
