@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://btqxaru611oa"]
+
+[ext_resource type="Shader" uid="uid://w8gf32ssjivm" path="res://shaders/water.gdshader" id="1_45gsp"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_45gsp")
+shader_parameter/water_color_bottom = Color(3.85046e-06, 0.68356377, 0.78468287, 1)
+shader_parameter/water_color_top = Color(0.14998364, 0.948973, 0.9999998, 1)

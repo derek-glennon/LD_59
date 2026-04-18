@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bkboe4foqiksr" path="res://materials/mat_sky.tres" id="1_0kpsk"]
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
-[ext_resource type="Script" uid="uid://b8pr27o8nubiw" path="res://compositor/pixelate_ce.gd" id="2_phnmh"]
+[ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -25,18 +25,11 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_phnmh"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = true
-script = ExtResource("2_phnmh")
-metadata/_custom_type_script = "uid://b8pr27o8nubiw"
-
 [sub_resource type="Compositor" id="Compositor_edv0t"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_phnmh")])
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_phnmh"]
 
 [node name="IslandScene" type="Node3D" unique_id=373182846]
 
@@ -46,8 +39,17 @@ compositor = SubResource("Compositor_edv0t")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=34050]
 
-[node name="Island" parent="." unique_id=789307362 instance=ExtResource("2_edv0t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, 0.010409832, 0.0022025108)
+[node name="Island" parent="." unique_id=953826695 instance=ExtResource("2_edv0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0.0022025108)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1673132568]
 transform = Transform3D(0.35166967, -0.009048779, 0.9360804, -0.93612415, -0.0033993153, 0.35165325, 0, -0.99995327, -0.009666217, 0, 14.741041, 0)
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
+transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
+material_override = ExtResource("4_g1j5r")
+mesh = SubResource("PlaneMesh_phnmh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=807650049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18.550545)
+mesh = SubResource("SphereMesh_phnmh")
