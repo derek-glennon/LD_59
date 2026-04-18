@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3gfl3eh3h4ll"
-path="res://.godot/imported/perlin_greyscale.png-a653648f9015141c725e958d9143c2a3.ctex"
+uid="uid://bi4ljccq7b1jt"
+path="res://.godot/imported/palette_1.png-89cc8636f37a835a8392ad6074d1fc5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/perlin_greyscale.png"
-dest_files=["res://.godot/imported/perlin_greyscale.png-a653648f9015141c725e958d9143c2a3.ctex"]
+source_file="res://textures/palette_1.png"
+dest_files=["res://.godot/imported/palette_1.png-89cc8636f37a835a8392ad6074d1fc5a.ctex"]
 
 [params]
 
@@ -37,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

@@ -4,6 +4,7 @@
 
 [resource]
 albedo_color = Color(0.84112525, 0.77062994, 0.542365, 1)
-emission_enabled = true
+metallic_specular = 0.0
+roughness = 0.2
 normal_texture = ExtResource("1_notdj")
 uv1_scale = Vector3(10, 10, 10)

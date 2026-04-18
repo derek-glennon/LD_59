@@ -2,8 +2,19 @@
 
 [ext_resource type="Shader" uid="uid://w8gf32ssjivm" path="res://shaders/water.gdshader" id="1_45gsp"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_45gsp"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1j7qa"]
+noise = SubResource("FastNoiseLite_45gsp")
+seamless = true
+
 [resource]
 render_priority = 0
 shader = ExtResource("1_45gsp")
 shader_parameter/water_color_bottom = Color(3.85046e-06, 0.68356377, 0.78468287, 1)
 shader_parameter/water_color_top = Color(0.14998364, 0.948973, 0.9999998, 1)
+shader_parameter/pattern_texture = SubResource("NoiseTexture2D_1j7qa")
+shader_parameter/pattern_uv_scale = Vector2(0.1, 0.1)
+shader_parameter/pattern_uv_speed = Vector2(0.04, 0.02)
+shader_parameter/pattern_step = 0.6229999999999981
