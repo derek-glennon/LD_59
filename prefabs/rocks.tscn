@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bqttn7t7h2ehd"]
+
+[ext_resource type="PackedScene" uid="uid://ctfug212gaasx" path="res://meshes/rocks.glb" id="1_wijcf"]
+[ext_resource type="Material" uid="uid://ccvaphsje8btm" path="res://materials/mat_leaves.tres" id="2_tvths"]
+[ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="3_tvths"]
+
+[node name="rocks" unique_id=621823909 instance=ExtResource("1_wijcf")]
+
+[node name="Rocks" parent="." index="0" unique_id=573333628]
+surface_material_override/0 = ExtResource("2_tvths")
+surface_material_override/1 = ExtResource("3_tvths")

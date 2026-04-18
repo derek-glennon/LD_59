@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_37q66"]
 [ext_resource type="PackedScene" uid="uid://ce0acy6tdkv2s" path="res://prefabs/test_interactable.tscn" id="6_noqu5"]
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
+[ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -88,4 +89,7 @@ attached_offset = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
 
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 0, -5.3452463)
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)
+
+[node name="rocks" parent="." unique_id=621823909 instance=ExtResource("8_cclv5")]
+transform = Transform3D(-0.7298983, 0, 0.6835559, 0, 1, 0, -0.6835559, 0, -0.7298983, 0, 0, 0)
