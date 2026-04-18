@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baeq6vux1byk7"]
 
 [ext_resource type="Script" uid="uid://b4qma7215sgqp" path="res://scripts/player.gd" id="1_4dohe"]
-[ext_resource type="ArrayMesh" uid="uid://cdtgq1cuw6blf" path="res://meshes/player_mesh.res" id="1_72ieh"]
+[ext_resource type="ArrayMesh" uid="uid://dbm81yfn04a35" path="res://meshes/player_mesh.res" id="1_72ieh"]
 [ext_resource type="Material" uid="uid://ck6215esune7l" path="res://materials/mat_player_body.tres" id="3_1txc5"]
 [ext_resource type="Material" uid="uid://2o2j5hxu0o86" path="res://materials/mat_player_head.tres" id="4_ht1c8"]
 [ext_resource type="Material" uid="uid://b7sfbjbdnotpc" path="res://materials/mat_player_hands.tres" id="5_ht1c8"]
@@ -9,7 +9,7 @@
 [sub_resource type="SphereMesh" id="SphereMesh_1txc5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ht1c8"]
-size = Vector3(0.50042725, 0.7524414, 0.8029785)
+size = Vector3(0.50042725, 0.8890991, 0.91223145)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4dohe"]
 radius = 0.28027344
@@ -271,7 +271,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.5279511e-09, -0.008863006, 1.5279511e-09)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMesh/PlayerGrabArea" unique_id=167097485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015289307, 0.055908203, -0.4156494)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015289307, -0.012420654, -0.47027588)
 shape = SubResource("BoxShape3D_ht1c8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1872383008]

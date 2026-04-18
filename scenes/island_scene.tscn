@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ce0acy6tdkv2s" path="res://prefabs/test_interactable.tscn" id="6_noqu5"]
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
+[ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
+[ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="10_wjfqx"]
+[ext_resource type="ArrayMesh" uid="uid://bdhksw8vqr37l" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -72,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26147175, 0)
 shape = SubResource("WorldBoundaryShape3D_g1j5r")
 
 [node name="Player" parent="." unique_id=2113885086 node_paths=PackedStringArray("island_scene", "camera") instance=ExtResource("5_37q66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74721193, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15561, 0.74721193, 12.256225)
 island_scene = NodePath("..")
 camera = NodePath("Camera3D")
 
@@ -91,5 +94,50 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)
 
+[node name="tree3" parent="Trees" unique_id=1608331695 instance=ExtResource("7_ax415")]
+transform = Transform3D(-0.9981121, 0, -0.061419666, 0, 1, 0, 0.061419666, 0, -0.9981121, -11.115919, 0.34009326, 8.393693)
+
+[node name="tree4" parent="Trees" unique_id=1339728349 instance=ExtResource("7_ax415")]
+transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 4.1867905, 0.34009326, 10.488681)
+
+[node name="tree5" parent="Trees" unique_id=358758512 instance=ExtResource("7_ax415")]
+transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 9.6366825, 0.34009326, 6.379093)
+
+[node name="tree6" parent="Trees" unique_id=1104843776 instance=ExtResource("7_ax415")]
+transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 7.9781456, 2.8144212, -6.5174522)
+
+[node name="tree7" parent="Trees" unique_id=867701571 instance=ExtResource("7_ax415")]
+transform = Transform3D(0.9987164, 0, -0.0506517, 0, 1, 0, 0.0506517, 0, 0.9987164, 0.98089504, 3.6153274, -10.306995)
+
+[node name="tree8" parent="Trees" unique_id=1474743497 instance=ExtResource("7_ax415")]
+transform = Transform3D(-0.2907467, 0, -0.9568001, 0, 1, 0, 0.9568001, 0, -0.2907467, -7.209098, 2.832192, -8.615587)
+
 [node name="rocks" parent="." unique_id=621823909 instance=ExtResource("8_cclv5")]
 transform = Transform3D(-0.7298983, 0, 0.6835559, 0, 1, 0, -0.6835559, 0, -0.7298983, 0, 0, 0)
+
+[node name="Crate" parent="." unique_id=104961257 instance=ExtResource("9_pal10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1725588, 0.59695613, 12.297435)
+attached_offset = Vector3(0, 3, -3)
+
+[node name="Plank" type="MeshInstance3D" parent="." unique_id=1062777922]
+transform = Transform3D(0.8590208, 0, -0.5119406, 0, 1, 0, 0.5119406, 0, 0.8590208, 0.0703419, 0.25593388, 12.853473)
+material_overlay = ExtResource("10_wjfqx")
+mesh = ExtResource("10_wkuwm")
+
+[node name="Plank2" type="MeshInstance3D" parent="." unique_id=1114171641]
+transform = Transform3D(0.9644104, 0, 0.26441008, 0.065013215, 0.9693002, -0.23712948, -0.25629273, 0.24588025, 0.93480325, 2.1281905, 0.13288188, 12.445208)
+material_overlay = ExtResource("10_wjfqx")
+mesh = ExtResource("10_wkuwm")
+
+[node name="Plank3" type="MeshInstance3D" parent="." unique_id=1607031054]
+transform = Transform3D(0.9254118, -0.16601294, 0.34066528, 0.1843161, 0.98262453, -0.02183928, -0.3311202, 0.08300034, 0.9399313, 0.33529592, 0.22914791, 12.865815)
+material_overlay = ExtResource("10_wjfqx")
+mesh = ExtResource("10_wkuwm")
+
+[node name="Crate2" parent="." unique_id=1553739965 instance=ExtResource("9_pal10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.516768, 1.8751243, 1.2273672)
+attached_offset = Vector3(0, 3, -3)
+
+[node name="Crate3" parent="." unique_id=1843208050 instance=ExtResource("9_pal10")]
+transform = Transform3D(0.7722737, 0, 0.6352899, 0, 1, 0, -0.6352899, 0, 0.7722737, -12.516768, 2.7488017, 1.2273672)
+attached_offset = Vector3(0, 3, -3)

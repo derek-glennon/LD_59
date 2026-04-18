@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dlyrcengfqntk"
-path="res://.godot/imported/island.glb-d2e9e0c8ee92d60f27536b8b314c57e9.scn"
+uid="uid://bgp0hxqq7r7nk"
+path="res://.godot/imported/crate_mesh.glb-ff89b306c760afb4d132fe0d2f5a86fc.scn"
 
 [deps]
 
-source_file="res://meshes/island.glb"
-dest_files=["res://.godot/imported/island.glb-d2e9e0c8ee92d60f27536b8b314c57e9.scn"]
+source_file="res://meshes/crate_mesh.glb"
+dest_files=["res://.godot/imported/crate_mesh.glb-ff89b306c760afb4d132fe0d2f5a86fc.scn"]
 
 [params]
 
@@ -38,10 +38,15 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:IslandMesh": {
-"generate/physics": true,
-"physics/shape_type": 2
+"meshes": {
+"crate_mesh_Cube_023": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://meshes/crate_mesh.res",
+"save_to_file/path": "uid://b015uqa5bsicm"
 }
 }
 }

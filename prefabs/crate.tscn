@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://xku7ppxyi5fu"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_f802r"]
+[ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="2_csu2t"]
+[ext_resource type="ArrayMesh" uid="uid://b015uqa5bsicm" path="res://meshes/crate_mesh.res" id="2_d6wc2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d6wc2"]
+size = Vector3(0.8327637, 0.8479614, 0.85121155)
+
+[node name="Crate" unique_id=888649470 instance=ExtResource("1_f802r")]
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+material_override = ExtResource("2_csu2t")
+mesh = ExtResource("2_d6wc2")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1798205095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0015869141, -0.0014953613, -8.392334e-05)
+shape = SubResource("BoxShape3D_d6wc2")
