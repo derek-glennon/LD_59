@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ce0acy6tdkv2s"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_ydvnn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ro4es"]
+
+[node name="InteractableBase" unique_id=888649470 instance=ExtResource("1_ydvnn")]
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+transform = Transform3D(0.31235182, 0, 0, 0, 0.31235182, 0, 0, 0, 0.31235182, 0, 0, 0)
+mesh = SubResource("SphereMesh_ro4es")

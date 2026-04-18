@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://baeq6vux1byk7"]
+
+[ext_resource type="Script" uid="uid://b4qma7215sgqp" path="res://scripts/player.gd" id="1_4dohe"]
+[ext_resource type="ArrayMesh" uid="uid://cdtgq1cuw6blf" path="res://meshes/player_mesh.res" id="1_72ieh"]
+[ext_resource type="Material" uid="uid://ck6215esune7l" path="res://materials/mat_player_body.tres" id="3_1txc5"]
+[ext_resource type="Material" uid="uid://2o2j5hxu0o86" path="res://materials/mat_player_head.tres" id="4_ht1c8"]
+[ext_resource type="Material" uid="uid://b7sfbjbdnotpc" path="res://materials/mat_player_hands.tres" id="5_ht1c8"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1txc5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ht1c8"]
+size = Vector3(0.50042725, 0.7524414, 0.8029785)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4dohe"]
+radius = 0.28027344
+height = 0.95280457
+
+[sub_resource type="Animation" id="Animation_ht1c8"]
+resource_name = "Moving"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerMesh:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-3.0559022e-10, -0.25, 0, 0.25, 0, -3.0559022e-10, -0.25, 0, 0.25, 0, -3.0559022e-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.16666667, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerMesh:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0017726012, -0.25, 0, 0.107216515, -0.0017064809, 0.09001323, -0.06649123, -0.0013227612, 0.07945125, -0.00066138804, -3.0559022e-10, -0.03851974, 0.04636242, 0.25, 0),
+"times": PackedFloat32Array(0, 0.16538647, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerMesh:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-3.0559022e-10, -0.25, 0, 0.25, 0, -3.0559022e-10, -0.25, 0, 0.25, 0, -3.0559022e-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.16666667, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_g2jcq"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerMesh:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.0559022e-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerMesh:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.0559022e-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerMesh:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-3.0559022e-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u51tk"]
+_data = {
+&"Moving": SubResource("Animation_ht1c8"),
+&"RESET": SubResource("Animation_g2jcq")
+}
+
+[sub_resource type="Animation" id="Animation_u51tk"]
+resource_name = "Grab"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerMesh/HandLeft:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-0.55913043, -0.25, 0, 0.25, 0, -0.55913043, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerMesh/HandLeft:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.22189893, -1.2322524, 0.04801042, 0.26661214, 0.4007567, -0.07220359, 0.00838387, 0.025775654, -0.15847658, -0.5112851, -0.005893498, -0.010948679, 0.01707381, 0.03171897, 0, -0.053829044, 0.015091508, 0, 0.06539566),
+"times": PackedFloat32Array(0, 0.1, 0.2667545, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerMesh/HandLeft:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(-1.4962025, -0.13167015, 2.5226734, 0.0322693, -0.6182487, -2.7868528, -0.09139617, 0.043599844, 0.022994291, -0.0109692495, -2.3511055, -0.00132, -0.0074, 0.0024819623, 0.013914031, -1.4962025, -0.061742485, -0.1403594, 0.0044558644, -0.022983074),
+"times": PackedFloat32Array(0, 0.1, 0.2667545, 0.4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerMesh/HandRight:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0.55915, -0.25, 0, 0.25, 0, 0.55915, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerMesh/HandRight:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.22189893, -1.2322524, 0.04801042, 0.26661214, 0.4007567, -0.07220359, 0.00838387, 0.025775654, -0.15847658, -0.5112851, -0.005893498, -0.010948679, 0.01707381, 0.03171897, 0, -0.053829044, 0.015091508, 0, 0.06539566),
+"times": PackedFloat32Array(0, 0.1, 0.2667545, 0.4)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerMesh/HandRight:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-1.4962025, -0.13167015, 2.5226734, 0.0322693, -0.6182487, -2.7868528, -0.09139617, 0.043599844, 0.022994291, -0.0109692495, -2.3511055, -0.00132, -0.0074, 0.0024819623, 0.013914031, -1.4962025, -0.061742485, -0.1403594, 0.0044558644, -0.022983074),
+"times": PackedFloat32Array(0, 0.1, 0.2667545, 0.4)
+}
+
+[sub_resource type="Animation" id="Animation_kbsxf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerMesh/HandLeft:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.55913043, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerMesh/HandLeft:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerMesh/HandLeft:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.4962025, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerMesh/HandRight:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.55915, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerMesh/HandRight:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.5279511e-09, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerMesh/HandRight:position:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1.4962, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rgeog"]
+_data = {
+&"Grab": SubResource("Animation_u51tk"),
+&"RESET": SubResource("Animation_kbsxf")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=2113885086 node_paths=PackedStringArray("player_mesh", "body_animation_player", "hand_animation_player", "hand_attach_point")]
+collision_layer = 2
+script = ExtResource("1_4dohe")
+player_mesh = NodePath("PlayerMesh")
+body_animation_player = NodePath("BodyAnimationPlayer")
+hand_animation_player = NodePath("HandAnimationPlayer")
+hand_attach_point = NodePath("PlayerMesh/HandRight/AttachPoint")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="." unique_id=739130512]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -3.0559022e-10, -3.0559022e-10, -3.0559022e-10)
+mesh = ExtResource("1_72ieh")
+surface_material_override/0 = ExtResource("3_1txc5")
+surface_material_override/1 = ExtResource("4_ht1c8")
+
+[node name="HandLeft" type="MeshInstance3D" parent="PlayerMesh" unique_id=1654414691]
+transform = Transform3D(0.5601748, 0, 0, 0, 0.5601748, 0, 0, 0, 0.5601748, -0.55913043, 0, -1.4962025)
+material_override = ExtResource("5_ht1c8")
+mesh = SubResource("SphereMesh_1txc5")
+
+[node name="HandRight" type="MeshInstance3D" parent="PlayerMesh" unique_id=1960026787]
+transform = Transform3D(0.5601748, 0, 0, 0, 0.5601748, 0, 0, 0, 0.5601748, 0.55915, -1.5279511e-09, -1.4962)
+material_override = ExtResource("5_ht1c8")
+mesh = SubResource("SphereMesh_1txc5")
+
+[node name="AttachPoint" type="Node3D" parent="PlayerMesh/HandRight" unique_id=934162317]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.63517874, -0.7047007)
+
+[node name="PlayerGrabArea" type="Area3D" parent="PlayerMesh" unique_id=1130628312]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.5279511e-09, -0.008863006, 1.5279511e-09)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMesh/PlayerGrabArea" unique_id=167097485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015289307, 0.055908203, -0.4156494)
+shape = SubResource("BoxShape3D_ht1c8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1872383008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.003791809, 0)
+shape = SubResource("CapsuleShape3D_4dohe")
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="." unique_id=282172750]
+libraries/ = SubResource("AnimationLibrary_u51tk")
+
+[node name="HandAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1805429197]
+libraries/ = SubResource("AnimationLibrary_rgeog")
+
+[connection signal="body_entered" from="PlayerMesh/PlayerGrabArea" to="." method="_on_player_grab_area_body_entered"]
+[connection signal="body_exited" from="PlayerMesh/PlayerGrabArea" to="." method="_on_player_grab_area_body_exited"]
