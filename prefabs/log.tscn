@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpweuas5mfljq"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_m50dc"]
+[ext_resource type="Script" uid="uid://d0kc7x3gm6c28" path="res://scripts/log.gd" id="2_2ba2c"]
+[ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="2_avmya"]
+[ext_resource type="ArrayMesh" uid="uid://dop2kcvwnwhe5" path="res://meshes/log_mesh.res" id="2_cvuxw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_cvuxw"]
+height = 0.3328247
+radius = 0.08544922
+
+[node name="Log" unique_id=888649470 instance=ExtResource("1_m50dc")]
+script = ExtResource("2_2ba2c")
+attached_offset = Vector3(-1, 0, 0)
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+material_override = ExtResource("2_avmya")
+mesh = ExtResource("2_cvuxw")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1798205095]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -0.004425049, 1.9342572e-10, 0)
+shape = SubResource("CylinderShape3D_cvuxw")
