@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
 [ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="10_wjfqx"]
 [ext_resource type="ArrayMesh" uid="uid://bdhksw8vqr37l" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
+[ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -32,7 +33,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_cclv5"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_wjfqx"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -43,7 +44,7 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_cclv5")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_wjfqx")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 
@@ -59,7 +60,7 @@ compositor = SubResource("Compositor_ax415")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0.0022025108)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1673132568]
-transform = Transform3D(-0.34667102, -0.15907812, -0.9243989, -0.9361242, -0.003399315, 0.35165322, -0.059082665, 0.98726016, -0.14773844, 0, 2.5004473, 0)
+transform = Transform3D(-0.30868214, 0.48701805, -0.81702447, -0.9361242, -0.003399325, 0.35165325, 0.16848418, 0.8733854, 0.45695865, 0, 2.5004473, 0)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
@@ -91,7 +92,6 @@ transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50
 
 [node name="tree3" parent="Trees" unique_id=1608331695 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.9981121, 0, -0.061419666, 0, 1, 0, 0.061419666, 0, -0.9981121, -11.115919, 0.34009326, 8.393693)
-should_spawn_fruit = true
 
 [node name="tree4" parent="Trees" unique_id=1339728349 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 4.1867905, 0.34009326, 10.488681)
@@ -138,3 +138,6 @@ attached_offset = Vector3(0, 3, -3)
 [node name="Crate3" parent="." unique_id=1843208050 instance=ExtResource("9_pal10")]
 transform = Transform3D(0.7722737, 0, 0.6352899, 0, 1, 0, -0.6352899, 0, 0.7722737, -12.516768, 2.7488017, 1.2273672)
 attached_offset = Vector3(0, 3, -3)
+
+[node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("11_wjfqx")]
+transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375, -5.3833706e-09, -0.6217114, -0.10069081, 0.77674735, 16.148277, -0.003866136, -4.8780746)

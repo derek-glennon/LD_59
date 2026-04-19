@@ -1,0 +1,281 @@
+[gd_scene format=3 uid="uid://bkgkht0o5ilrc"]
+
+[ext_resource type="PackedScene" uid="uid://cnn2b11yv68ov" path="res://meshes/shark_rigged.glb" id="1_wh052"]
+[ext_resource type="Material" uid="uid://glqf3eae6wb7" path="res://materials/mat_shark_body.tres" id="2_5aedx"]
+[ext_resource type="Script" uid="uid://bakymxablschf" path="res://scripts/shark.gd" id="2_al8h1"]
+[ext_resource type="Material" uid="uid://dxt2kj20ty3lb" path="res://materials/mat_shark_tooth.tres" id="3_stte0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al8h1"]
+radius = 1.4570313
+height = 5.613037
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_al8h1"]
+size = Vector3(1.375, 2.3613586, 2.3621826)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lv536"]
+size = Vector3(17.880005, 9.322815, 13.803757)
+
+[sub_resource type="Animation" id="Animation_lv536"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shark_rigged/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shark_rigged/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.006737551, -6.8949326e-08, -0.100634806, 0.9949006)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shark_rigged/Skeleton3D:Bone.002")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("shark_rigged/Skeleton3D:Bone.003")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0014256303, -3.6107302e-08, -0.19222261, 0.9813503)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("shark_rigged/Skeleton3D:Bone.004")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shark_rigged/Skeleton3D:Bone.005")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.012643041, -4.839904e-08, 0.332874, 0.94288653)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("shark_rigged/Skeleton3D:Bone.006")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.012539892, 4.9336775e-09, 0.33015838, 0.94384223)
+
+[sub_resource type="Animation" id="Animation_xp7df"]
+resource_name = "close_mouth"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shark_rigged/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545, 0.5, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shark_rigged/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064, 0.5, 1, -0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shark_rigged/Skeleton3D:Bone.002")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317, 0.5, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("shark_rigged/Skeleton3D:Bone.003")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.0035554296, -0.00806575, 0.37972066, 0.9250592, 0.5, 1, -0.0014256305, -3.6107306e-08, -0.19222263, 0.9813504)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("shark_rigged/Skeleton3D:Bone.004")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754, 0.5, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shark_rigged/Skeleton3D:Bone.005")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.012643042, -4.8399045e-08, 0.332874, 0.9428866, 0.5, 1, -0.012643042, -4.8399045e-08, 0.332874, 0.9428866)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("shark_rigged/Skeleton3D:Bone.006")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.0038665482, 0.03333862, -0.19584484, 0.9800604, 0.5, 1, -0.012539893, 4.8244533e-09, 0.33015838, 0.9438423)
+
+[sub_resource type="Animation" id="Animation_al8h1"]
+resource_name = "open_mouth"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shark_rigged/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545, 0.5, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shark_rigged/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.006737551, -6.8949326e-08, -0.100634806, 0.9949006, 0.5, 1, -0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shark_rigged/Skeleton3D:Bone.002")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317, 0.5, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("shark_rigged/Skeleton3D:Bone.003")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.0014256303, -3.6107302e-08, -0.19222261, 0.9813503, 0.5, 1, 0.0035554296, -0.00806575, 0.37972066, 0.9250592)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("shark_rigged/Skeleton3D:Bone.004")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754, 0.5, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shark_rigged/Skeleton3D:Bone.005")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.012643041, -4.839904e-08, 0.332874, 0.94288653, 0.5, 1, -0.012643042, -4.8399045e-08, 0.332874, 0.9428866)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("shark_rigged/Skeleton3D:Bone.006")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.012539892, 4.9336775e-09, 0.33015838, 0.94384223, 0.5, 1, 0.0038665482, 0.03333862, -0.19584484, 0.9800604)
+
+[sub_resource type="Animation" id="Animation_5lgvy"]
+resource_name = "quick_chomp"
+length = 0.1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shark_rigged/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545, 0.099999994, 1, 6.467192e-08, -5.0813657e-08, 0.80644035, 0.59131545)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shark_rigged/Skeleton3D:Bone.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.006737552, -6.894933e-08, -0.10063482, 0.9949007, 0.099999994, 1, -0.006737551, -6.8949326e-08, -0.100634806, 0.9949006)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("shark_rigged/Skeleton3D:Bone.002")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317, 0.099999994, 1, -0.0011905005, -4.7074742e-08, -0.16052121, 0.9870317)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("shark_rigged/Skeleton3D:Bone.003")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.0035554299, -0.00806575, 0.37972063, 0.9250592, 0.099999994, 1, -0.0014256303, -3.6107302e-08, -0.19222261, 0.9813503)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("shark_rigged/Skeleton3D:Bone.004")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754, 0.099999994, 1, -0.017812822, 6.111229e-08, -0.59963495, 0.8000754)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("shark_rigged/Skeleton3D:Bone.005")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.012643043, -4.8336776e-08, 0.332874, 0.94288665, 0.099999994, 1, -0.012643041, -4.839904e-08, 0.332874, 0.94288653)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("shark_rigged/Skeleton3D:Bone.006")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.0038665486, 0.033338625, -0.19584487, 0.98006046, 0.099999994, 1, -0.012539892, 4.9336775e-09, 0.33015838, 0.94384223)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lv536"]
+_data = {
+&"RESET": SubResource("Animation_lv536"),
+&"close_mouth": SubResource("Animation_xp7df"),
+&"open_mouth": SubResource("Animation_al8h1"),
+&"quick_chomp": SubResource("Animation_5lgvy")
+}
+
+[node name="shark_rigged" unique_id=1099023649 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_wh052")]
+script = ExtResource("2_al8h1")
+animation_player = NodePath("shark_rigged/Skeleton3D/AnimationPlayer")
+bob_amplitude = 0.0999999999999997
+bob_speed = 0.000999999999999997
+
+[node name="Skeleton3D" parent="shark_rigged" parent_id_path=PackedInt32Array(52248682) index="0" unique_id=2041806559]
+bones/1/rotation = Quaternion(-0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064)
+bones/3/rotation = Quaternion(-0.0014256303, -3.6107302e-08, -0.19222263, 0.98135036)
+bones/3/scale = Vector3(1.0000002, 1, 1.0000001)
+bones/5/rotation = Quaternion(-0.012643042, -4.8399045e-08, 0.332874, 0.9428866)
+bones/6/rotation = Quaternion(-0.012539893, 4.8244533e-09, 0.33015838, 0.9438423)
+bones/6/scale = Vector3(0.9999996, 1.0000002, 1.0000002)
+
+[node name="Shark" parent="shark_rigged/Skeleton3D" index="0" unique_id=2049350866]
+surface_material_override/0 = ExtResource("2_5aedx")
+surface_material_override/1 = ExtResource("3_stte0")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="shark_rigged/Skeleton3D" index="1" unique_id=1586449681]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shark_rigged/Skeleton3D/StaticBody3D" index="0" unique_id=1518675377]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.2725618, 0.24248922, 0)
+shape = SubResource("CapsuleShape3D_al8h1")
+
+[node name="ChompArea" type="Area3D" parent="shark_rigged/Skeleton3D" index="2" unique_id=1682631850]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shark_rigged/Skeleton3D/ChompArea" index="0" unique_id=786967882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6919265, 0.3203888, -0.085876465)
+shape = SubResource("BoxShape3D_al8h1")
+
+[node name="OpenMouthArea" type="Area3D" parent="shark_rigged/Skeleton3D" index="3" unique_id=2018359540]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shark_rigged/Skeleton3D/OpenMouthArea" index="0" unique_id=428081654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24078369, 1.3103943, -0.09438324)
+shape = SubResource("BoxShape3D_lv536")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="shark_rigged/Skeleton3D" index="4" unique_id=749639580]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_lv536")
+
+[connection signal="body_entered" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_entered"]
+[connection signal="body_exited" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_exited"]
+[connection signal="body_entered" from="shark_rigged/Skeleton3D/OpenMouthArea" to="." method="_on_open_mouth_area_body_entered"]
+[connection signal="body_exited" from="shark_rigged/Skeleton3D/OpenMouthArea" to="." method="_on_open_mouth_area_body_exited"]

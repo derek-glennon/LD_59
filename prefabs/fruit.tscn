@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b5vyalv4asxvl"]
 
 [ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_7ybvl"]
+[ext_resource type="Script" uid="uid://cwl7lcco8gb3u" path="res://scripts/fruit.gd" id="2_7f6o5"]
 [ext_resource type="ArrayMesh" uid="uid://c47qqv77mofmd" path="res://meshes/fruit_mesh.res" id="2_a1cin"]
 [ext_resource type="Material" uid="uid://b83pnxw6qixis" path="res://materials/mat_fruit.tres" id="2_jp5cg"]
 
@@ -9,6 +10,7 @@ radius = 0.16552734
 height = 0.46318054
 
 [node name="Fruit" unique_id=888649470 instance=ExtResource("1_7ybvl")]
+script = ExtResource("2_7f6o5")
 attached_offset = Vector3(0, 1, -1)
 
 [node name="Mesh" parent="." index="0" unique_id=3919643]
