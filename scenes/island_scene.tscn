@@ -12,8 +12,6 @@
 [ext_resource type="ArrayMesh" uid="uid://ko55nawrxwfk" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="12_2vh7n"]
-[ext_resource type="PackedScene" uid="uid://cn52y7ngohge2" path="res://prefabs/axe.tscn" id="13_jr8id"]
-[ext_resource type="PackedScene" uid="uid://dpweuas5mfljq" path="res://prefabs/log.tscn" id="14_hjump"]
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="15_sr8os"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
@@ -150,15 +148,6 @@ transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375,
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
 transform = Transform3D(-3.0143197, 0, -2.635202e-07, 0, 3.0143197, 0, 2.635202e-07, 0, -3.0143197, -18.59987, 0, -206.56029)
-
-[node name="Axe" parent="." unique_id=888649470 instance=ExtResource("13_jr8id")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.98821, 0.7970871, 11.88457)
-log_scene = null
-log_give_direction = Vector3(0, 0, 0)
-log_give_force = 100.0
-
-[node name="Log" parent="." unique_id=211506926 instance=ExtResource("14_hjump")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.134633, 0.82993865, 10.954474)
 
 [node name="log_circle" parent="." unique_id=1155332218 instance=ExtResource("15_sr8os")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41813183, 5.222088)

@@ -5,14 +5,33 @@
 [ext_resource type="Script" uid="uid://bi03wrequum10" path="res://scripts/log_circle.gd" id="2_s1caa"]
 [ext_resource type="PackedScene" uid="uid://bytt6kfs5ufi1" path="res://prefabs/fire.tscn" id="5_3gdxe"]
 [ext_resource type="ArrayMesh" uid="uid://dop2kcvwnwhe5" path="res://meshes/log_mesh.res" id="5_mxo3c"]
+[ext_resource type="Material" uid="uid://b4wcp1vhtmebh" path="res://materials/mat_smoke.tres" id="6_5qrq7"]
+[ext_resource type="ArrayMesh" uid="uid://d4cigrn337kca" path="res://meshes/smoke_mesh.res" id="7_rjydp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1dmqj"]
 radius = 0.8945566
 
-[node name="log_circle" unique_id=1155332218 node_paths=PackedStringArray("logs", "fire") instance=ExtResource("1_1dmqj")]
+[sub_resource type="Curve" id="Curve_01tg6"]
+_limits = [0.0, 8.0, 0.0, 1.0]
+_data = [Vector2(0, 0.37877464), 0.0, 12.64419, 0, 0, Vector2(0.3466667, 4.015876), 7.1582165, 7.1582165, 0, 0, Vector2(1, 8), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_c4dhx"]
+curve = SubResource("Curve_01tg6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_egxer"]
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_c4dhx")
+
+[node name="log_circle" unique_id=1155332218 node_paths=PackedStringArray("logs", "fire", "smoke") instance=ExtResource("1_1dmqj")]
 script = ExtResource("2_s1caa")
 logs = [NodePath("Log"), NodePath("Log2"), NodePath("Log3")]
 fire = NodePath("Fire")
+smoke = NodePath("GPUParticles3D")
 
 [node name="Log_Circle" parent="." index="0" unique_id=1620732985]
 transform = Transform3D(0.61770785, 0, 0, 0, 0.61770785, 0, 0, 0, 0.61770785, 0, 0, 0)
@@ -43,5 +62,13 @@ mesh = ExtResource("5_mxo3c")
 
 [node name="Fire" parent="." index="5" unique_id=1616359922 instance=ExtResource("5_3gdxe")]
 visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="6" unique_id=1602921362]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17031634, 0)
+material_override = ExtResource("6_5qrq7")
+emitting = false
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_egxer")
+draw_pass_1 = ExtResource("7_rjydp")
 
 [connection signal="body_entered" from="LogSnapArea" to="." method="_on_log_snap_area_body_entered"]

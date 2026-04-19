@@ -2,6 +2,7 @@ class_name LogCircle extends Node3D
 
 @export var logs : Array[MeshInstance3D] = []
 @export var fire : Node3D
+@export var smoke : GPUParticles3D
 
 var _number_of_logs := 0
 
@@ -17,4 +18,5 @@ func _on_log_snap_area_body_entered(body: Node3D) -> void:
 func start_fire() -> void:
 	# TODO : Choreo
 	fire.visible = true
+	smoke.emitting = true
 		
