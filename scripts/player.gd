@@ -15,58 +15,61 @@ class_name Player extends CharacterBody3D
 @export_category("Grab/Throw")
 @export var throw_strength = 1000.0
 
+var can_move := true
+
 var _interactables_in_range : Array[InteractableBase] = []
 var _trees_in_range : Array[IslandTree] = []
 var _grabbed_interactable : InteractableBase
 
 func _physics_process(delta: float) -> void:
-	# Player Rotation
-	var mouse_position = get_viewport().get_mouse_position()
-	var view_size = get_viewport().get_visible_rect().size
-	var center_mouse_position = mouse_position - Vector2(view_size.x / 2, view_size.y /2)
-	var angle = center_mouse_position.normalized().angle()
-	player_mesh.rotation.y = -angle - PI/2
-	
-	# Grab/Throw
-	if Input.is_action_just_released("Click"):
-		hand_animation_player.play("Grab")
-		# If we aren't holding anthing
-		# See if there is anthing close to grab
-		if !_grabbed_interactable:
-			if _interactables_in_range.size() > 0:
-				var closest_interactable = find_closest_interactable_in_range()
-				grab_interactable(closest_interactable)
-			elif _trees_in_range.size() > 0:
-				var closest_tree = find_closest_tree_in_range()
-				closest_tree.shake_tree()
+	if can_move:
+		# Player Rotation
+		var mouse_position = get_viewport().get_mouse_position()
+		var view_size = get_viewport().get_visible_rect().size
+		var center_mouse_position = mouse_position - Vector2(view_size.x / 2, view_size.y /2)
+		var angle = center_mouse_position.normalized().angle()
+		player_mesh.rotation.y = -angle - PI/2
+		
+		# Grab/Throw
+		if Input.is_action_just_released("Click"):
+			hand_animation_player.play("Grab")
+			# If we aren't holding anthing
+			# See if there is anthing close to grab
+			if !_grabbed_interactable:
+				if _interactables_in_range.size() > 0:
+					var closest_interactable = find_closest_interactable_in_range()
+					grab_interactable(closest_interactable)
+				elif _trees_in_range.size() > 0:
+					var closest_tree = find_closest_tree_in_range()
+					closest_tree.shake_tree()
+			else:
+				throw_interactable()
+		
+		# Add the gravity.
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+
+		# Handle jump.
+		if Input.is_action_just_pressed("Jump") and is_on_floor():
+			velocity.y = jump_velocity
+
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")
+		var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * move_speed
+			velocity.z = direction.z * move_speed
 		else:
-			throw_interactable()
-	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+			velocity.x = move_toward(velocity.x, 0, move_speed)
+			velocity.z = move_toward(velocity.z, 0, move_speed)
+		
+		if velocity != Vector3.ZERO and is_on_floor():
+			body_animation_player.play("Moving", 0.5)
+		else:
+			body_animation_player.play("RESET", 0.5)
 
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_velocity
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("Left", "Right", "Forward", "Back")
-	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * move_speed
-		velocity.z = direction.z * move_speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
-		velocity.z = move_toward(velocity.z, 0, move_speed)
-	
-	if velocity != Vector3.ZERO and is_on_floor():
-		body_animation_player.play("Moving", 0.5)
-	else:
-		body_animation_player.play("RESET", 0.5)
-
-	move_and_slide()
+		move_and_slide()
 
 func find_closest_interactable_in_range() -> InteractableBase:
 	var result : InteractableBase

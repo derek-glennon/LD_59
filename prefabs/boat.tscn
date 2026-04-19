@@ -2,39 +2,35 @@
 
 [ext_resource type="PackedScene" uid="uid://da5ty7keefo7w" path="res://meshes/boat_mesh.glb" id="1_e2cyf"]
 [ext_resource type="Material" uid="uid://b0d8ov6ejhnqg" path="res://materials/mat_boat_floaty.tres" id="2_38kwv"]
+[ext_resource type="Script" uid="uid://byh0s8mxf6y5k" path="res://scripts/boat.gd" id="2_pq28i"]
 [ext_resource type="Material" uid="uid://b8s757inghx3j" path="res://materials/mat_boat_bottom.tres" id="3_xrmm3"]
 [ext_resource type="Material" uid="uid://dgpc5jvvrxxr" path="res://materials/mat_boat_top.tres" id="4_6u3na"]
+[ext_resource type="Shape3D" uid="uid://d2e8q2njcxvmf" path="res://collision/boat_collision.shape" id="5_6u3na"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_e2cyf"]
-size = Vector3(5.428528, 1.3101196, 2.581543)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_38kwv"]
-size = Vector3(1.4810791, 1.3243408, 1.281189)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ab7xs"]
-size = Vector3(0.41931152, 0.5740967, 0.42016602)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6u3na"]
+size = Vector3(3.1718445, 0.46826172, 1.5715332)
 
 [node name="Boat" unique_id=890121887 instance=ExtResource("1_e2cyf")]
+script = ExtResource("2_pq28i")
 
-[node name="Boat" parent="." index="0" unique_id=700496715]
+[node name="Boat" parent="." index="0" unique_id=635634728]
 surface_material_override/0 = ExtResource("2_38kwv")
 surface_material_override/1 = ExtResource("3_xrmm3")
 surface_material_override/2 = ExtResource("4_6u3na")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1231327800]
+[node name="StaticBody3D" type="StaticBody3D" parent="Boat" index="0" unique_id=1231327800]
+transform = Transform3D(3.464577e-07, -2.842338, -0.6063678, -8.661441e-08, 0.6063678, -2.8423376, 2.906298, 3.5690425e-07, -1.2423588e-08, 0.8912366, -4.0043983, -3.0633829)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1064847240]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26541138, 0.122406006, -0.031982422)
-shape = SubResource("BoxShape3D_e2cyf")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boat/StaticBody3D" index="0" unique_id=1967803902]
+transform = Transform3D(4.101757e-08, -1.0254393e-08, 0.34408033, -0.33650804, 0.07178867, 4.2254353e-08, -0.07178867, -0.33650807, -1.4708446e-09, 1.0540497, 0.58737886, -1.2835318)
+shape = ExtResource("5_6u3na")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." index="2" unique_id=1380718692]
+[node name="EndGameArea" type="Area3D" parent="." index="1" unique_id=228962323]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0" unique_id=1752809613]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56187534, 0.9605082, -0.008880615)
-shape = SubResource("BoxShape3D_38kwv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndGameArea" index="0" unique_id=1524842497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.064851046, 0.84718823, -0.014526367)
+shape = SubResource("BoxShape3D_6u3na")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="." index="3" unique_id=921799003]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" index="0" unique_id=1195220901]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0754143, 1.9354575, -0.016235352)
-shape = SubResource("BoxShape3D_ab7xs")
+[connection signal="body_entered" from="EndGameArea" to="." method="_on_end_game_area_body_entered"]

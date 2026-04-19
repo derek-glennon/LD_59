@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b8pr27o8nubiw" path="res://compositor/pixelate_ce.gd" id="2_37q66"]
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
 [ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
+[ext_resource type="Script" uid="uid://dboo02mkk3jjl" path="res://scripts/cutscene_controller.gd" id="4_hjump"]
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_37q66"]
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
@@ -35,7 +36,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_sr8os"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_hjump"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -46,11 +47,232 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_sr8os")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_hjump")])
+
+[sub_resource type="Curve" id="Curve_hjump"]
+_limits = [0.0, 1.1, 0.0, 1.0]
+_data = [Vector2(0.0013280213, 0), 0.0, 3.3019817, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g1j5r"]
+
+[sub_resource type="Animation" id="Animation_sr8os"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoatBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-18.59987, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoatBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoatBG:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-206.56029, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoatBG:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoatBG:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.1058743, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoatBG:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_mpujm"]
+resource_name = "leaving"
+length = 3.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoatBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-21.654453, -0.25, 0, 0.25, 0, -21.654453, -0.25, 0, 0.25, 0, -21.654453, -0.029999992, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.03499999, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -21.654453, -0.029999992, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -21.654453, -0.029999992, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -21.654453, -0.029999992, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -22.809242, -0.041666668, 0.19246483, 0, 0, -22.809242, -0.035000008, 0, 0, 0, -21.654453, -0.026666682, 0, 0, 0, -21.654453, -0.029999992, 0, 0, 0, -22.809242, -0.035000008, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.0666667, 1.1333333, 1.2, 1.2666667, 1.3333334, 1.4, 1.4666667, 1.518683, 1.5666667, 1.6333333, 1.6792425, 1.7333333, 1.7752633, 1.8098937, 1.8523948, 1.883877, 1.9200816, 1.9499897, 1.9783237, 2.0019355, 2.0274565, 2.0693865, 2.1040168, 2.146518, 2.1780002, 2.2142048, 2.244113, 2.2724469, 2.2960587, 2.3225121, 2.364442, 2.3990724, 2.4415736, 2.4730558, 2.5092604, 2.5391686, 2.5675025, 2.5911143)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoatBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.029999992, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.03499999, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.029999992, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.029999992, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.029999992, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.041666668, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.026666682, 0, 0, 0, 0, -0.029999992, 0, 0, 0, 0, -0.035000008, 0, 0, 0, 0, -0.017323574, 0, 0, 0, 0, -0.017323574, 0, 0, 0, 100, -0.017323574, 0, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.0666667, 1.1333333, 1.2, 1.2666667, 1.3333334, 1.4, 1.4666667, 1.518683, 1.5666667, 1.6333333, 1.6792425, 1.7333333, 1.7752633, 1.8098937, 1.8523948, 1.883877, 1.9200816, 1.9499897, 1.9783237, 2.0019355, 2.0274565, 2.0693865, 2.1040168, 2.146518, 2.1780002, 2.2142048, 2.244113, 2.2724469, 2.2960587, 2.3225121, 2.364442, 2.3990724, 2.4415736, 2.4730558, 2.5092604, 2.5391686, 2.5675025, 2.5911143, 2.6333334, 3, 3.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoatBG:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-10.807034, -0.25, 0, 0.25, 0, -10.807034, -0.25, 0, 0.25, 0, -12.364933, -0.029999992, 0.25964993, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -15.682831, -0.03499999, 0.39376137, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -12.364933, -0.029999992, 0.25964993, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -12.364933, -0.029999992, 0.25964993, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -12.364933, -0.029999992, 0.25964993, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -13.320263, -0.041666668, 0.15922165, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0, -12.364933, -0.026666682, 0, 0, 0, -12.364933, -0.029999992, 0.25964993, 0, 0, -14.051125, -0.035000008, -0.27195105, 0, 0),
+"times": PackedFloat32Array(0, 1, 1.0666667, 1.1333333, 1.2, 1.2666667, 1.3333334, 1.4, 1.4666667, 1.518683, 1.5666667, 1.6333333, 1.6792425, 1.7333333, 1.7752633, 1.8098937, 1.8523948, 1.883877, 1.9200816, 1.9499897, 1.9783237, 2.0019355, 2.0274565, 2.0693865, 2.1040168, 2.146518, 2.1780002, 2.2142048, 2.244113, 2.2724469, 2.2960587, 2.3225121, 2.364442, 2.3990724, 2.4415736, 2.4730558, 2.5092604, 2.5391686, 2.5675025, 2.5911143)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoatBG:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoatBG:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-3.053243, -0.25, 0, 0.25, 0, -3.053243, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoatBG:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_hjump"]
+resource_name = "leaving_setup"
+length = 5.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoatBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-18.59987, -0.25, 0, 0.25, 0, -18.59987, -0.083333336, 0, 0, 0, -43.910355, -0.083333336, 4.2184143, 0, 0, -7.7423477, -0.16666667, -13.428953, 0.16666667, 13.428953, 100, -0.16666667, -26.857906, 0, 0, 100, 0, 0, 0, 0, -21.654453, -0.16833338, 23.148588, 0, 0),
+"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoatBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.083333336, 0, 0, 0, 0, -0.16666667, 0, 0.16666667, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16833338, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoatBG:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-206.56029, -0.25, 0, 0.25, 0, -206.56029, -0.083333336, 0, 0, 0, -144.28242, -0.083333336, -10.379644, 0, 0, -74.661385, -0.16666667, -7.02094, 0.16666667, 7.02094, -60.03115, -0.16666667, -14.04188, 0, 0, -60.03115, -0.19999981, -0.04937744, 0, 0, -10.807034, -0.16833338, -8.2040205, 0, 0),
+"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoatBG:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoatBG:rotation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 2, 0, 0, 0),
+"points": PackedFloat32Array(3.1058743, -0.25, 0, 0.06666667, 0.04888177, 3.154756, -0.00165, 0.01185, 0, 0, 1.0845673, -0.16567981, -0.0072910786, 0.13432014, 0.017149806, 2.8614647, -0.39999986, -0.757669, 0.2910443, 0.5512883, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, -3.053243, -0.16666667, 0.96591175, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoatBG:rotation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sr8os"]
+_data = {
+&"RESET": SubResource("Animation_sr8os"),
+&"leaving": SubResource("Animation_mpujm"),
+&"leaving_setup": SubResource("Animation_hjump")
+}
 
 [node name="IslandScene" type="Node3D" unique_id=373182846]
 
@@ -64,6 +286,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1673132568]
 transform = Transform3D(-0.30868214, 0.48701805, -0.81702447, -0.9361242, -0.003399325, 0.35165325, 0.16848418, 0.8733854, 0.45695865, 0, 2.5004473, 0)
 light_cull_mask = 4294967293
+
+[node name="CutsceneController" type="Node3D" parent="." unique_id=536758914 node_paths=PackedStringArray("animation_player", "camera", "player", "boat", "leaving_camera_point")]
+script = ExtResource("4_hjump")
+animation_player = NodePath("../AnimationPlayer")
+camera = NodePath("../Player/Camera3D")
+player = NodePath("../Player")
+boat = NodePath("../BoatBG")
+leaving_camera_point = NodePath("LeavingAnimationCameraPoint")
+leaving_camera_curve = SubResource("Curve_hjump")
+
+[node name="LeavingAnimationCameraPoint" type="Node3D" parent="CutsceneController" unique_id=1858609469]
+transform = Transform3D(1, 0, 0, 0, 0.91662866, 0.39973977, 0, -0.39973977, 0.91662866, 0, 9.386899, 19.279026)
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
@@ -147,7 +381,10 @@ attached_offset = Vector3(0, 3, -3)
 transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375, -5.3833706e-09, -0.6217114, -0.10069081, 0.77674735, 16.148277, -0.003866136, -4.8780746)
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
-transform = Transform3D(-3.0143197, 0, -2.635202e-07, 0, 3.0143197, 0, 2.635202e-07, 0, -3.0143197, -18.59987, 0, -206.56029)
+transform = Transform3D(-3.0123982, 0, 0.107643686, 0, 3.01432, 0, -0.107643686, 0, -3.0123982, -18.59987, 0, -206.56029)
 
 [node name="log_circle" parent="." unique_id=1155332218 instance=ExtResource("15_sr8os")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41813183, 5.222088)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=218958646]
+libraries/ = SubResource("AnimationLibrary_sr8os")
