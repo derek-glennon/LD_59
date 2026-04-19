@@ -37,7 +37,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_mpujm"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_sr8os"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -48,7 +48,7 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_mpujm")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_sr8os")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 
@@ -65,6 +65,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1673132568]
 transform = Transform3D(-0.30868214, 0.48701805, -0.81702447, -0.9361242, -0.003399325, 0.35165325, 0.16848418, 0.8733854, 0.45695865, 0, 2.5004473, 0)
+light_cull_mask = 4294967293
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)

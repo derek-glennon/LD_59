@@ -6,4 +6,5 @@
 [node name="Fire" unique_id=1616359922 instance=ExtResource("1_se4d2")]
 
 [node name="Cube_039" parent="." index="0" unique_id=540032380]
+layers = 2
 material_override = ExtResource("2_ue32e")

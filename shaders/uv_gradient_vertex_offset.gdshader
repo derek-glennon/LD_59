@@ -44,7 +44,7 @@ void fragment() {
 	float gradient = smoothstep(smoothstep_min, smoothstep_max, UV.y);
 	vec3 gradient_color = mix(color_bottom, color_top, gradient);
 	ALBEDO = gradient_color + texture_sample + overlay;
-	EMISSION = (gradient_color + overlay) * emissive_intensity;
+	EMISSION = (gradient_color + overlay + texture_sample) * emissive_intensity;
 	ROUGHNESS = roughness;
 	SPECULAR = 0.0;
 }
