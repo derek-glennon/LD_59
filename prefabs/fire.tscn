@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bytt6kfs5ufi1"]
+
+[ext_resource type="PackedScene" uid="uid://bvs5jewa7e8c7" path="res://meshes/fire_mesh.glb" id="1_se4d2"]
+[ext_resource type="Material" uid="uid://bj5ljp7lyjyiv" path="res://materials/mat_fire.tres" id="2_ue32e"]
+
+[node name="Fire" unique_id=1616359922 instance=ExtResource("1_se4d2")]
+
+[node name="Cube_039" parent="." index="0" unique_id=540032380]
+material_override = ExtResource("2_ue32e")

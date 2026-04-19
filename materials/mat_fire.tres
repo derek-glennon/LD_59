@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bj5ljp7lyjyiv"]
+
+[ext_resource type="Shader" uid="uid://l5535e5slnga" path="res://shaders/uv_gradient_vertex_offset.gdshader" id="1_2md3f"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1y0eh"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ld7xv"]
+noise = SubResource("FastNoiseLite_1y0eh")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2md3f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1y0eh"]
+noise = SubResource("FastNoiseLite_2md3f")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2md3f")
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_ld7xv")
+shader_parameter/uv_scale = Vector2(1, 1)
+shader_parameter/uv_speed = Vector2(0, 0)
+shader_parameter/has_overlay = false
+shader_parameter/overlay_uv_scale = Vector2(1, 1)
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_top = Color(1, 1, 1, 1)
+shader_parameter/smoothstep_min = 0.0
+shader_parameter/smoothstep_max = 1.0
+shader_parameter/emissive_intensity = 0.0
+shader_parameter/roughness = 0.7999999999999976
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_1y0eh")
+shader_parameter/noise_uv_scale = Vector2(1, 1)
+shader_parameter/noise_uv_speed = Vector2(0.1, 1)
+shader_parameter/noise_intensity = 0.999999999999997
+shader_parameter/sine_wavelength = 11.999999999999964
+shader_parameter/sine_speed = 7.999999999999976
+shader_parameter/sine_amplitude = 0.0999999999999997

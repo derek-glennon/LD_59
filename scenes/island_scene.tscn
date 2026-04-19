@@ -37,7 +37,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_2vh7n"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_mpujm"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -48,7 +48,7 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_2vh7n")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_mpujm")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 

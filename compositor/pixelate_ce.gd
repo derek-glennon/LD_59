@@ -15,6 +15,7 @@ const PALETTE4_IMAGE_BINDING := 3
 const PALETTE5_IMAGE_BINDING := 4
 const PALETTE6_IMAGE_BINDING := 5
 const PALETTE7_IMAGE_BINDING := 6
+const PALETTE8_IMAGE_BINDING := 7
 var palette1_image_uniform : RDUniform
 var palette2_image_uniform : RDUniform
 var palette3_image_uniform : RDUniform
@@ -22,6 +23,7 @@ var palette4_image_uniform : RDUniform
 var palette5_image_uniform : RDUniform
 var palette6_image_uniform : RDUniform
 var palette7_image_uniform : RDUniform
+var palette8_image_uniform : RDUniform
 
 var texture_dirty := true
 var settings_dirty := false
@@ -67,7 +69,8 @@ func _render_view(p_view : int) -> void:
 		 palette4_image_uniform,
 		 palette5_image_uniform,
 		 palette6_image_uniform,
-		 palette7_image_uniform]
+		 palette7_image_uniform,
+		 palette8_image_uniform]
 	]
 
 	run_compute_shader(
@@ -127,6 +130,8 @@ func create_palette_texture(palette_index : int) -> RDUniform:
 			result = get_sampler_uniform(tex, sampler, PALETTE6_IMAGE_BINDING)
 		7:
 			result = get_sampler_uniform(tex, sampler, PALETTE7_IMAGE_BINDING)
+		8:
+			result = get_sampler_uniform(tex, sampler, PALETTE8_IMAGE_BINDING)
 			
 			
 			
@@ -140,6 +145,7 @@ func create_textures() -> void:
 	palette5_image_uniform = create_palette_texture(5)
 	palette6_image_uniform = create_palette_texture(6)
 	palette7_image_uniform = create_palette_texture(7)
+	palette8_image_uniform = create_palette_texture(8)
 
 	texture_dirty = false
 
