@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cnn2b11yv68ov" path="res://meshes/shark_rigged.glb" id="1_wh052"]
 [ext_resource type="Material" uid="uid://glqf3eae6wb7" path="res://materials/mat_shark_body.tres" id="2_5aedx"]
 [ext_resource type="Script" uid="uid://bakymxablschf" path="res://scripts/shark.gd" id="2_al8h1"]
+[ext_resource type="PackedScene" uid="uid://cn52y7ngohge2" path="res://prefabs/axe.tscn" id="3_lv536"]
 [ext_resource type="Material" uid="uid://dxt2kj20ty3lb" path="res://materials/mat_shark_tooth.tres" id="3_stte0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al8h1"]
@@ -234,11 +235,16 @@ _data = {
 &"quick_chomp": SubResource("Animation_5lgvy")
 }
 
-[node name="shark_rigged" unique_id=1099023649 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_wh052")]
+[node name="shark_rigged" unique_id=1099023649 node_paths=PackedStringArray("animation_player", "axe_give_point", "axe_give_delay_timer") instance=ExtResource("1_wh052")]
 script = ExtResource("2_al8h1")
 animation_player = NodePath("shark_rigged/Skeleton3D/AnimationPlayer")
 bob_amplitude = 0.0999999999999997
-bob_speed = 0.000999999999999997
+bob_speed = 0.00099999999999999
+axe_scene = ExtResource("3_lv536")
+axe_give_direction = Vector3(-1, 1, 2)
+axe_give_force = 499.9999999999985
+axe_give_point = NodePath("AxeGivePoint")
+axe_give_delay_timer = NodePath("AxeGiveDelay")
 
 [node name="Skeleton3D" parent="shark_rigged" parent_id_path=PackedInt32Array(52248682) index="0" unique_id=2041806559]
 bones/1/rotation = Quaternion(-0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064)
@@ -253,6 +259,8 @@ surface_material_override/0 = ExtResource("2_5aedx")
 surface_material_override/1 = ExtResource("3_stte0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="shark_rigged/Skeleton3D" index="1" unique_id=1586449681]
+collision_layer = 8
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="shark_rigged/Skeleton3D/StaticBody3D" index="0" unique_id=1518675377]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.2725618, 0.24248922, 0)
@@ -274,6 +282,13 @@ shape = SubResource("BoxShape3D_lv536")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="shark_rigged/Skeleton3D" index="4" unique_id=749639580]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_lv536")
+
+[node name="AxeGivePoint" type="Node3D" parent="." index="1" unique_id=1063684543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9655932, 0, 0)
+
+[node name="AxeGiveDelay" type="Timer" parent="." index="2" unique_id=870398293]
+wait_time = 0.5
+one_shot = true
 
 [connection signal="body_entered" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_entered"]
 [connection signal="body_exited" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_exited"]

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cn52y7ngohge2"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_rd00o"]
+[ext_resource type="Script" uid="uid://c6m5blcrfktji" path="res://scripts/axe.gd" id="2_07ke2"]
+[ext_resource type="ArrayMesh" uid="uid://c8inf4sugrj6s" path="res://meshes/axe_mesh.res" id="2_v6rpw"]
+[ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="3_v6rpw"]
+[ext_resource type="Material" uid="uid://t1o1wo5l18g1" path="res://materials/mat_axe_head.tres" id="4_cfwhn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rd00o"]
+size = Vector3(0.29037476, 0.7083435, 0.13354492)
+
+[node name="Axe" unique_id=888649470 instance=ExtResource("1_rd00o")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_07ke2")
+attached_offset = Vector3(0, -1, 0.5)
+attached_rotation = Vector3(0, -1.57, 0)
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+mesh = ExtResource("2_v6rpw")
+surface_material_override/0 = ExtResource("3_v6rpw")
+surface_material_override/1 = ExtResource("4_cfwhn")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1798205095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08744812, 0.32621765, 0.0037841797)
+shape = SubResource("BoxShape3D_rd00o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

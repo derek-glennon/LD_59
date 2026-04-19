@@ -12,6 +12,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ko55nawrxwfk" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="12_2vh7n"]
+[ext_resource type="PackedScene" uid="uid://cn52y7ngohge2" path="res://prefabs/axe.tscn" id="13_jr8id"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -87,6 +88,7 @@ transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93
 
 [node name="tree" parent="Trees" unique_id=953250290 instance=ExtResource("7_ax415")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
+should_spawn_fruit = true
 
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)
@@ -145,3 +147,6 @@ transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375,
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
 transform = Transform3D(-3.0143197, 0, -2.635202e-07, 0, 3.0143197, 0, 2.635202e-07, 0, -3.0143197, -18.59987, 0, -206.56029)
+
+[node name="Axe" parent="." unique_id=888649470 instance=ExtResource("13_jr8id")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.045821, 0.7970871, 11.88457)

@@ -64,6 +64,8 @@ Click={
 [layer_names]
 
 3d_physics/layer_2="Player"
+3d_physics/layer_3="Axe"
+3d_physics/layer_4="Shark"
 
 [physics]
 

@@ -242,6 +242,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" unique_id=2113885086 node_paths=PackedStringArray("player_mesh", "body_animation_player", "hand_animation_player", "hand_attach_point")]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_4dohe")
 player_mesh = NodePath("PlayerMesh")
 body_animation_player = NodePath("BodyAnimationPlayer")
@@ -269,6 +270,7 @@ transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.
 
 [node name="PlayerGrabArea" type="Area3D" parent="PlayerMesh" unique_id=1130628312]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1.5279511e-09, -0.008863006, 1.5279511e-09)
+collision_mask = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerMesh/PlayerGrabArea" unique_id=167097485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015289307, -0.012420654, -0.47027588)
