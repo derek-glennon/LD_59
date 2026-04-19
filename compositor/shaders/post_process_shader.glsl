@@ -13,6 +13,7 @@ layout(set = 1, binding = 2) uniform sampler2D palette_3;
 layout(set = 1, binding = 3) uniform sampler2D palette_4;
 layout(set = 1, binding = 4) uniform sampler2D palette_5;
 layout(set = 1, binding = 5) uniform sampler2D palette_6;
+layout(set = 1, binding = 6) uniform sampler2D palette_7;
 
 const mat4x4 bayerMatrix4x4 = mat4x4(
     0.0,  8.0,  2.0, 10.0,
@@ -70,6 +71,7 @@ void main() {
     // 4 - Player Head
     // 5 - Wood
     // 6 - Leaves
+    // 7 - Metal
     vec4 normal = get_normal_roughness_color(image_coord);
     float rounded_roughness = roundToDecimalPlace(normal.a, 2);
     float roughness_flag = trunc(rounded_roughness * 10.0);
@@ -94,6 +96,10 @@ void main() {
     else if (roughness_flag == 6)
     {
         dither_color = dither(screen_uv, lum, palette_6);
+    }
+    else if (roughness_flag == 7)
+    {
+        dither_color = dither(screen_uv, lum, palette_7);
     }
 
     vec4 final_color = vec4(dither_color, viewport_color.a);

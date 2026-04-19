@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b8s757inghx3j"]
+
+[ext_resource type="Shader" uid="uid://cywvpxh6v62r2" path="res://shaders/uv_gradient.gdshader" id="1_elfwg"]
+[ext_resource type="Texture2D" uid="uid://diig75amcaied" path="res://meshes/shark_rigged_Shark Face.png" id="2_bgpn1"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h3f2e"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sllu0"]
+noise = SubResource("FastNoiseLite_h3f2e")
+seamless = true
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_elfwg")
+shader_parameter/albedo_texture = SubResource("NoiseTexture2D_sllu0")
+shader_parameter/uv_scale = Vector2(1, 10)
+shader_parameter/uv_speed = Vector2(0, 0)
+shader_parameter/has_overlay = true
+shader_parameter/overlay_texture = ExtResource("2_bgpn1")
+shader_parameter/overlay_uv_scale = Vector2(1, 1)
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_top = Color(0, 0, 0, 1)
+shader_parameter/smoothstep_min = 0.0
+shader_parameter/smoothstep_max = 1.0
+shader_parameter/emissive_intensity = 0.0
+shader_parameter/roughness = 0.6999999999999978

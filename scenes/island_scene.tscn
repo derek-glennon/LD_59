@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
 [ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
 [ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="10_wjfqx"]
-[ext_resource type="ArrayMesh" uid="uid://bdhksw8vqr37l" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
+[ext_resource type="ArrayMesh" uid="uid://ko55nawrxwfk" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
+[ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="12_2vh7n"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("1_0kpsk")
@@ -33,7 +34,7 @@ volumetric_fog_emission_energy = 0.2
 volumetric_fog_anisotropy = 0.55
 volumetric_fog_sky_affect = 0.0
 
-[sub_resource type="CompositorEffect" id="CompositorEffect_wjfqx"]
+[sub_resource type="CompositorEffect" id="CompositorEffect_2vh7n"]
 resource_local_to_scene = false
 resource_name = ""
 enabled = true
@@ -44,7 +45,7 @@ script = ExtResource("2_37q66")
 metadata/_custom_type_script = "uid://b8pr27o8nubiw"
 
 [sub_resource type="Compositor" id="Compositor_ax415"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_wjfqx")])
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_2vh7n")])
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_phnmh"]
 
@@ -141,3 +142,6 @@ attached_offset = Vector3(0, 3, -3)
 
 [node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("11_wjfqx")]
 transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375, -5.3833706e-09, -0.6217114, -0.10069081, 0.77674735, 16.148277, -0.003866136, -4.8780746)
+
+[node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
+transform = Transform3D(-3.0143197, 0, -2.635202e-07, 0, 3.0143197, 0, 2.635202e-07, 0, -3.0143197, -18.59987, 0, -206.56029)

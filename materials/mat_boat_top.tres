@@ -1,6 +1,7 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://dxt2kj20ty3lb"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dgpc5jvvrxxr"]
 
-[ext_resource type="Shader" uid="uid://cywvpxh6v62r2" path="res://shaders/uv_gradient.gdshader" id="1_l3syg"]
+[ext_resource type="Shader" uid="uid://cywvpxh6v62r2" path="res://shaders/uv_gradient.gdshader" id="1_12fcu"]
+[ext_resource type="Texture2D" uid="uid://diig75amcaied" path="res://meshes/shark_rigged_Shark Face.png" id="2_x3b4r"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h3f2e"]
 noise_type = 3
@@ -11,15 +12,16 @@ seamless = true
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_l3syg")
+shader = ExtResource("1_12fcu")
 shader_parameter/albedo_texture = SubResource("NoiseTexture2D_sllu0")
 shader_parameter/uv_scale = Vector2(2.5189, 10)
 shader_parameter/uv_speed = Vector2(0, 0)
-shader_parameter/has_overlay = false
+shader_parameter/has_overlay = true
+shader_parameter/overlay_texture = ExtResource("2_x3b4r")
 shader_parameter/overlay_uv_scale = Vector2(1, 1)
-shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_bottom = Color(0.17211533, 0.1721153, 0.1721153, 1)
 shader_parameter/color_top = Color(1, 1, 1, 1)
 shader_parameter/smoothstep_min = 0.999999999999997
 shader_parameter/smoothstep_max = -0.5439999999999984
 shader_parameter/emissive_intensity = 1.0
-shader_parameter/roughness = 0.3999999999999988
+shader_parameter/roughness = 0.4999999999999985

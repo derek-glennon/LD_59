@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bypnfosxek5ra"]
+
+[ext_resource type="PackedScene" uid="uid://da5ty7keefo7w" path="res://meshes/boat_mesh.glb" id="1_e2cyf"]
+[ext_resource type="Material" uid="uid://b0d8ov6ejhnqg" path="res://materials/mat_boat_floaty.tres" id="2_38kwv"]
+[ext_resource type="Material" uid="uid://b8s757inghx3j" path="res://materials/mat_boat_bottom.tres" id="3_xrmm3"]
+[ext_resource type="Material" uid="uid://dgpc5jvvrxxr" path="res://materials/mat_boat_top.tres" id="4_6u3na"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e2cyf"]
+size = Vector3(5.428528, 1.3101196, 2.581543)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_38kwv"]
+size = Vector3(1.4810791, 1.3243408, 1.281189)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab7xs"]
+size = Vector3(0.41931152, 0.5740967, 0.42016602)
+
+[node name="Boat" unique_id=890121887 instance=ExtResource("1_e2cyf")]
+
+[node name="Boat" parent="." index="0" unique_id=700496715]
+surface_material_override/0 = ExtResource("2_38kwv")
+surface_material_override/1 = ExtResource("3_xrmm3")
+surface_material_override/2 = ExtResource("4_6u3na")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1231327800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1064847240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26541138, 0.122406006, -0.031982422)
+shape = SubResource("BoxShape3D_e2cyf")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." index="2" unique_id=1380718692]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" index="0" unique_id=1752809613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56187534, 0.9605082, -0.008880615)
+shape = SubResource("BoxShape3D_38kwv")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." index="3" unique_id=921799003]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" index="0" unique_id=1195220901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0754143, 1.9354575, -0.016235352)
+shape = SubResource("BoxShape3D_ab7xs")
