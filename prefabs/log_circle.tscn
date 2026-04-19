@@ -42,5 +42,6 @@ material_overlay = ExtResource("2_iqsfh")
 mesh = ExtResource("5_mxo3c")
 
 [node name="Fire" parent="." index="5" unique_id=1616359922 instance=ExtResource("5_3gdxe")]
+visible = false
 
 [connection signal="body_entered" from="LogSnapArea" to="." method="_on_log_snap_area_body_entered"]
