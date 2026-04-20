@@ -1,6 +1,7 @@
 class_name OpeningCutsceneManager extends Node3D
 
 @export var animation_player : AnimationPlayer
+@export var title_lable : Label
 @export var start_label : Label
 @export var quit_label : Label
 
@@ -16,6 +17,8 @@ func play_opening_animation() -> void:
 func fade_text(value : float) -> void:
 	start_label.label_settings.font_color.a = 1.0 - value
 	start_label.label_settings.outline_color.a = 1.0 - value
+	title_lable.label_settings.font_color.a = 1.0 - value
+	title_lable.label_settings.outline_color.a = 1.0 - value
 	
 func ready_to_play_animation() -> void:
 	animation_player.play("opening")

@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://do7m641dib7ai" path="res://materials/mat_water_menu.tres" id="4_akv2y"]
 [ext_resource type="Script" uid="uid://cg1w3osgpilav" path="res://scripts/opening_cutscene_manager.gd" id="4_y5rry"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="5_3ixmc"]
+[ext_resource type="AudioStream" uid="uid://becc20e75nv7i" path="res://audio/background.wav" id="5_tlhfc"]
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="6_y5rry"]
 [ext_resource type="Script" uid="uid://7504nsiaar6y" path="res://scripts/constant_size_margin_container.gd" id="7_5ejm5"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="8_5ejm5"]
@@ -69,6 +70,12 @@ depth = 0.02
 [sub_resource type="LabelSettings" id="LabelSettings_5cw1r"]
 font = ExtResource("9_pcgpk")
 font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tlhfc"]
+font = ExtResource("9_pcgpk")
+font_size = 128
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -310,6 +317,18 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.1499751, 1.0198697, -0.10178223)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("OpeningCutsceneManager/BackgroundAudio:volume_db")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_y5rry"]
@@ -572,6 +591,18 @@ tracks/21/keys = {
 "times": PackedFloat32Array(3.7634645, 5.0509653, 9.557218)
 }
 tracks/21/use_blend = true
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("OpeningCutsceneManager/BackgroundAudio:volume_db")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0, 2, 2.6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -10.000000000000213, -10.000000000000213, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ejm5"]
 _data = {
@@ -592,13 +623,18 @@ compositor = SubResource("Compositor_akv2y")
 transform = Transform3D(-0.30868214, 0.487018, -0.81702435, -0.9361242, -0.0033992827, 0.35165328, 0.16848418, 0.8733853, 0.45695862, -3.0559022e-10, 10, -3.0559022e-10)
 light_cull_mask = 4294967293
 
-[node name="OpeningCutsceneManager" type="Node3D" parent="." unique_id=160106222 node_paths=PackedStringArray("animation_player", "start_label", "quit_label")]
+[node name="OpeningCutsceneManager" type="Node3D" parent="." unique_id=160106222 node_paths=PackedStringArray("animation_player", "title_lable", "start_label", "quit_label")]
 script = ExtResource("4_y5rry")
 animation_player = NodePath("../AnimationPlayer")
+title_lable = NodePath("../CanvasLayer/MarginContainer2/Title")
 start_label = NodePath("../CanvasLayer/MarginContainer/VBoxContainer/Start")
 quit_label = NodePath("../CanvasLayer/MarginContainer/VBoxContainer/Quit")
 
 [node name="CutsceneAudio" type="AudioStreamPlayer" parent="OpeningCutsceneManager" unique_id=63526817]
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="OpeningCutsceneManager" unique_id=699192914]
+stream = ExtResource("5_tlhfc")
+autoplay = true
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1722487362]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
@@ -625,14 +661,14 @@ transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93
 [node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("8_5ejm5")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 15.649196, -3.1770692, -55.934162)
 
-[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 1412335680) index="0" unique_id=1887323306]
+[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 52248682) index="0" unique_id=2041806559]
 bones/3/scale = Vector3(1.0000001, 0.99999994, 1)
 bones/6/scale = Vector3(0.99999994, 1, 1)
 
 [node name="fruit_mesh" parent="shark_rigged" unique_id=327917832 instance=ExtResource("9_3uxnb")]
 transform = Transform3D(3.209908, 0, -1.0872746e-07, 0, 3.209907, 0, 1.0872746e-07, 0, 3.209908, -3.407524, 2.310045, -2.6527386)
 
-[node name="Fruit" parent="shark_rigged/fruit_mesh" index="0" unique_id=1328591290]
+[node name="Fruit" parent="shark_rigged/fruit_mesh" index="0" unique_id=884961368]
 material_override = ExtResource("10_havtv")
 
 [node name="Question" type="MeshInstance3D" parent="shark_rigged" unique_id=273858100]
@@ -678,6 +714,24 @@ layout_mode = 2
 mouse_filter = 0
 text = "Quit"
 label_settings = SubResource("LabelSettings_5cw1r")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer" unique_id=784193091]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.5
+offset_right = 100.5
+offset_bottom = 158.0
+grow_horizontal = 2
+script = ExtResource("7_5ejm5")
+top_offset_ratio = 0.04999999999999985
+
+[node name="Title" type="Label" parent="CanvasLayer/MarginContainer2" unique_id=1732713802]
+material = ExtResource("8_lwios")
+layout_mode = 2
+mouse_filter = 0
+text = "Islandia"
+label_settings = SubResource("LabelSettings_tlhfc")
 
 [node name="EndBGArea" type="Area3D" parent="." unique_id=1564792492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -573.96826, -3.0559022e-10, -3.0559022e-10)

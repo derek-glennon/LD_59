@@ -3,6 +3,7 @@ class_name LogCircle extends Node3D
 @export var logs : Array[MeshInstance3D] = []
 @export var cutscene_controller : CutsceneController
 @export var fire_crackle_audio : AudioStreamPlayer3D
+@export var log_add_audio : AudioStreamPlayer3D
 
 var _number_of_logs := 0
 
@@ -12,6 +13,7 @@ func _on_log_snap_area_body_entered(body: Node3D) -> void:
 		if _number_of_logs < logs.size():
 			logs[_number_of_logs].visible = true
 			_number_of_logs += 1
+			log_add_audio.play()
 			if _number_of_logs == logs.size():
 				start_fire()
 			log.queue_free()

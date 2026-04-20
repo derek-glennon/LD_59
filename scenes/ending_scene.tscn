@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b8pr27o8nubiw" path="res://compositor/pixelate_ce.gd" id="2_u14vp"]
 [ext_resource type="Material" uid="uid://do7m641dib7ai" path="res://materials/mat_water_menu.tres" id="3_i70nl"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="4_agp5w"]
+[ext_resource type="AudioStream" uid="uid://becc20e75nv7i" path="res://audio/background.wav" id="4_ol5xn"]
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_i70nl"]
 [ext_resource type="Material" uid="uid://brkn4vsagyyad" path="res://materials/wavy_text.tres" id="6_5cw1r"]
 [ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="6_qar6k"]
@@ -74,6 +75,10 @@ compositor = SubResource("Compositor_i70nl")
 transform = Transform3D(-0.30868214, 0.487018, -0.81702435, -0.9361242, -0.0033992827, 0.35165328, 0.16848418, 0.8733853, 0.45695862, -3.0559022e-10, 10, -3.0559022e-10)
 light_cull_mask = 4294967293
 
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="." unique_id=1262346068]
+stream = ExtResource("4_ol5xn")
+autoplay = true
+
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1722487362]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
 material_override = ExtResource("3_i70nl")
@@ -100,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93
 transform = Transform3D(0.37438348, 0, 0.927274, 0, 1, 0, -0.927274, 0, 0.37438348, 9.581871, 0.102139235, 0)
 bob_amplitude = 0.1999999999999994
 
-[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 1412335680) index="0" unique_id=1887323306]
+[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 52248682) index="0" unique_id=2041806559]
 bones/0/position = Vector3(1.0185084, -0.29752803, 0)
 bones/1/position = Vector3(8.362704e-08, 1.0000002, -5.979038e-15)
 bones/1/scale = Vector3(0.99999994, 1, 1)
