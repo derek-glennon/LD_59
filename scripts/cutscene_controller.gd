@@ -34,6 +34,17 @@ func on_animation_done(anim_name : String) -> void:
 		"leaving":
 			boat.visible = false
 			await get_tree().create_timer(4.0).timeout
+			var nodes = get_all_children(get_tree().root)
+			for node in nodes:
+				var fruit = node as Fruit
+				if fruit:
+					fruit.queue_free()
+				var axe = node as Axe
+				if axe:
+					axe.queue_free()
+				var log = node as Log
+				if log:
+					log.queue_free()
 			get_tree().change_scene_to_file("res://scenes/ending_scene.tscn")
 
 func play_leaving_animation() -> void:
@@ -95,3 +106,9 @@ func move_camera_to_location(value : float, end_position : Vector3, end_rotation
 	var t = leaving_camera_curve.sample(value)
 	camera.global_position = lerp(_camera_starting_position, end_position, t)
 	camera.global_rotation = lerp(_camera_starting_rotation, end_rotation, t)
+
+func get_all_children(in_node,arr:=[]):
+	arr.push_back(in_node)
+	for child in in_node.get_children():
+		arr = get_all_children(child,arr)
+	return arr
