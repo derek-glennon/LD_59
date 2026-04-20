@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baeq6vux1byk7"]
 
 [ext_resource type="Script" uid="uid://b4qma7215sgqp" path="res://scripts/player.gd" id="1_4dohe"]
-[ext_resource type="ArrayMesh" uid="uid://cdtgq1cuw6blf" path="res://meshes/player_mesh.res" id="1_72ieh"]
+[ext_resource type="ArrayMesh" uid="uid://dbm81yfn04a35" path="res://meshes/player_mesh.res" id="1_72ieh"]
 [ext_resource type="Material" uid="uid://ck6215esune7l" path="res://materials/mat_player_body.tres" id="3_1txc5"]
 [ext_resource type="Material" uid="uid://2o2j5hxu0o86" path="res://materials/mat_player_head.tres" id="4_ht1c8"]
 [ext_resource type="Material" uid="uid://b7sfbjbdnotpc" path="res://materials/mat_player_hands.tres" id="5_ht1c8"]

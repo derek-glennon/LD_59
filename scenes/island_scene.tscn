@@ -27,6 +27,8 @@
 [ext_resource type="AudioStream" uid="uid://dcybv0negevt0" path="res://audio/ending_wait_no.wav" id="21_rtx86"]
 [ext_resource type="AudioStream" uid="uid://k5yspqgy0ki5" path="res://audio/ending_brakes.wav" id="22_nc83q"]
 [ext_resource type="AudioStream" uid="uid://bxddhjiqd1o6h" path="res://audio/crash.wav" id="23_rtx86"]
+[ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="28_8or5l"]
+[ext_resource type="Script" uid="uid://dlrjiyqjtp5nu" path="res://scripts/pause_menu.gd" id="28_djuev"]
 
 [sub_resource type="Sky" id="Sky_hjump"]
 sky_material = ExtResource("1_0kpsk")
@@ -421,6 +423,12 @@ _data = {
 &"leaving_setup": SubResource("Animation_hjump")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_djuev"]
+font = ExtResource("28_8or5l")
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="IslandScene" type="Node3D" unique_id=373182846]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2065317413]
@@ -472,9 +480,10 @@ shape = SubResource("WorldBoundaryShape3D_g1j5r")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=34050]
 transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -1.8936765, 2.204842, 16.337706)
 
-[node name="Player" parent="." unique_id=2113885086 node_paths=PackedStringArray("island_scene", "camera") instance=ExtResource("5_37q66")]
+[node name="Player" parent="." unique_id=2113885086 node_paths=PackedStringArray("island_scene", "pause_menu", "camera") instance=ExtResource("5_37q66")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8936765, 0.74721193, 13.964305)
 island_scene = NodePath("..")
+pause_menu = NodePath("../CanvasLayer")
 camera = NodePath("../Camera3D")
 should_move_on_ready = false
 should_spawn_in_on_ready = true
@@ -668,5 +677,51 @@ gravity_scale = 0.5
 linear_damp = 0.0
 angular_damp = 2.0
 attached_offset = Vector3(-0.5, 1, -4)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1380724594 node_paths=PackedStringArray("resume_label", "restart_label", "quit_label")]
+process_mode = 2
+visible = false
+script = ExtResource("28_djuev")
+resume_label = NodePath("VBoxContainer/Resume")
+restart_label = NodePath("VBoxContainer/Restart")
+quit_label = NodePath("VBoxContainer/Quit")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=929572096]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -119.5
+offset_right = 139.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Resume" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1577819560]
+layout_mode = 2
+mouse_filter = 0
+text = "Resume"
+label_settings = SubResource("LabelSettings_djuev")
+
+[node name="Restart" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1538438265]
+layout_mode = 2
+mouse_filter = 0
+text = "Restart"
+label_settings = SubResource("LabelSettings_djuev")
+
+[node name="Quit" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=367231534]
+layout_mode = 2
+mouse_filter = 0
+text = "Quit"
+label_settings = SubResource("LabelSettings_djuev")
+
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Resume" to="CanvasLayer" method="_on_resume_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/Resume" to="CanvasLayer" method="_on_resume_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Restart" to="CanvasLayer" method="_on_restart_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/Restart" to="CanvasLayer" method="_on_restart_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/VBoxContainer/Quit" to="CanvasLayer" method="_on_quit_mouse_exited"]
 
 [editable path="log_circle"]

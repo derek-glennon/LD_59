@@ -2,6 +2,7 @@ class_name Player extends CharacterBody3D
 
 @export_category("Components")
 @export var island_scene : Node3D
+@export var pause_menu : PauseMenu
 @export var camera : Camera3D
 @export var player_mesh : MeshInstance3D
 @export var body_animation_player : AnimationPlayer
@@ -46,6 +47,10 @@ func on_spawn_done() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if can_move:
+		if Input.is_action_just_pressed("Escape"):
+			pause_menu.on_game_paused()
+			get_tree().paused = true
+		
 		# Player Rotation
 		var mouse_position = get_viewport().get_mouse_position()
 		var view_size = get_viewport().get_visible_rect().size
