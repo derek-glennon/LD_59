@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var opening_cutscene_manager : OpeningCutsceneManager
+@export var player : Player
 
 enum CurrentMenuOption {
 	NONE,
@@ -8,6 +9,9 @@ enum CurrentMenuOption {
 	QUIT
 }
 var current_menu_option := CurrentMenuOption.NONE
+
+func _ready() -> void:
+	player.emote_animation_player.play("dance")
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Click"):

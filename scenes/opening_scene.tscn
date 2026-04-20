@@ -553,9 +553,10 @@ _data = {
 &"opening": SubResource("Animation_y5rry")
 }
 
-[node name="OpeningScene" type="Node3D" unique_id=1120560489 node_paths=PackedStringArray("opening_cutscene_manager")]
+[node name="OpeningScene" type="Node3D" unique_id=1120560489 node_paths=PackedStringArray("opening_cutscene_manager", "player")]
 script = ExtResource("1_7igwe")
 opening_cutscene_manager = NodePath("OpeningCutsceneManager")
+player = NodePath("BoatBG/Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705354861]
 environment = SubResource("Environment_agp5w")
@@ -596,14 +597,14 @@ transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93
 [node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("8_5ejm5")]
 transform = Transform3D(0.9999998, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 15.649196, -3.1770692, -55.934162)
 
-[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 52248682) index="0" unique_id=2041806559]
+[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 1412335680) index="0" unique_id=1887323306]
 bones/3/scale = Vector3(1.0000001, 0.99999994, 1)
 bones/6/scale = Vector3(0.99999994, 1, 1)
 
 [node name="fruit_mesh" parent="shark_rigged" unique_id=327917832 instance=ExtResource("9_3uxnb")]
 transform = Transform3D(3.209908, 0, -1.0872746e-07, 0, 3.209907, 0, 1.0872746e-07, 0, 3.209908, -3.407524, 2.310045, -2.6527386)
 
-[node name="Fruit" parent="shark_rigged/fruit_mesh" index="0" unique_id=884961368]
+[node name="Fruit" parent="shark_rigged/fruit_mesh" index="0" unique_id=1328591290]
 material_override = ExtResource("10_havtv")
 
 [node name="Question" type="MeshInstance3D" parent="shark_rigged" unique_id=273858100]
@@ -631,7 +632,7 @@ offset_bottom = 79.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("7_5ejm5")
-right_offset_ratio = 0.12254999999999963
+right_offset_ratio = 0.12254999999999965
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=424429848]
 layout_mode = 2

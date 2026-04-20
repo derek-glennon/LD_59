@@ -62,8 +62,9 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mgabq"]
 size = Vector3(100, 1000, 5000)
 
-[node name="EndingScene" type="Node3D" unique_id=1120560489]
+[node name="EndingScene" type="Node3D" unique_id=1120560489 node_paths=PackedStringArray("player")]
 script = ExtResource("1_7678q")
+player = NodePath("BoatBG/Player")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705354861]
 environment = SubResource("Environment_agp5w")

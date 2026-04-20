@@ -6,6 +6,7 @@ class_name Player extends CharacterBody3D
 @export var player_mesh : MeshInstance3D
 @export var body_animation_player : AnimationPlayer
 @export var hand_animation_player : AnimationPlayer
+@export var emote_animation_player : AnimationPlayer
 @export var hand_attach_point : Node3D
 
 @export_category("Movement")
