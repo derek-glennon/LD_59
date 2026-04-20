@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://bkboe4foqiksr" path="res://materials/mat_sky.tres" id="1_0kpsk"]
 [ext_resource type="Script" uid="uid://b8pr27o8nubiw" path="res://compositor/pixelate_ce.gd" id="2_37q66"]
 [ext_resource type="PackedScene" uid="uid://2v8pd5apmen" path="res://prefabs/island.tscn" id="2_edv0t"]
+[ext_resource type="AudioStream" uid="uid://c5xj3joflkdtb" path="res://audio/ambient_wind.wav" id="3_ea213"]
 [ext_resource type="Material" uid="uid://btqxaru611oa" path="res://materials/mat_water.tres" id="4_g1j5r"]
 [ext_resource type="Script" uid="uid://dboo02mkk3jjl" path="res://scripts/cutscene_controller.gd" id="4_hjump"]
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_37q66"]
@@ -20,6 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="15_sr8os"]
 [ext_resource type="PackedScene" uid="uid://b0k6h66672itf" path="res://prefabs/beach_ball.tscn" id="16_mpujm"]
 [ext_resource type="AudioStream" uid="uid://l63043ey1yq3" path="res://audio/fire_start.wav" id="19_bksdd"]
+[ext_resource type="AudioStream" uid="uid://cggirueiawew5" path="res://audio/ending_about_to_leave.wav" id="19_nc83q"]
+[ext_resource type="AudioStream" uid="uid://c4os86ty2lb54" path="res://audio/ending_yay.wav" id="20_vdt1t"]
+[ext_resource type="AudioStream" uid="uid://dcybv0negevt0" path="res://audio/ending_wait_no.wav" id="21_rtx86"]
+[ext_resource type="AudioStream" uid="uid://k5yspqgy0ki5" path="res://audio/ending_brakes.wav" id="22_nc83q"]
+[ext_resource type="AudioStream" uid="uid://bxddhjiqd1o6h" path="res://audio/crash.wav" id="23_rtx86"]
 
 [sub_resource type="Sky" id="Sky_hjump"]
 sky_material = ExtResource("1_0kpsk")
@@ -226,10 +232,29 @@ tracks/5/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1)
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutsceneController/CutsceneAudio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_nc83q")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("23_rtx86")
+}],
+"times": PackedFloat32Array(-1.7881393e-07, 2.9959152)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hjump"]
 resource_name = "leaving_setup"
-length = 8.0
+length = 10.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -239,7 +264,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-18.59987, -0.25, 0, 0.25, 0, -18.59987, -0.083333336, 0, 0, 0, -43.910355, -0.083333336, 4.2184143, 0, 0, -7.7423477, -0.16666667, -13.428953, 0.16666667, 13.428953, 100, -0.16666667, -26.857906, 0, 0, 100, 0, 0, 0, 0, -21.654453, -0.16833338, 23.148588, 0, 0),
-"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -250,7 +275,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.083333336, 0, 0, 0, 0, -0.16666667, 0, 0.16666667, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16833338, 0, 0, 0),
-"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -261,7 +286,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-206.56029, -0.25, 0, 0.25, 0, -206.56029, -0.083333336, 0, 0, 0, -144.28242, -0.083333336, -10.379644, 0, 0, -74.661385, -0.16666667, -7.02094, 0.16666667, 7.02094, -60.03115, -0.16666667, -14.04188, 0, 0, -60.03115, -0.19999981, -0.04937744, 0, 0, -10.807034, -0.16833338, -8.2040205, 0, 0),
-"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -272,7 +297,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
-"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -283,7 +308,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(3.1058743, -0.25, 0, 0.06666667, 0.04888177, 3.154756, -0.00165, 0.01185, 0, 0, 1.0845673, -0.16567981, -0.0072910786, 0.13432014, 0.017149806, 2.8614647, -0.39999986, -0.757669, 0.2910443, 0.5512883, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, -3.053243, -0.16666667, 0.96591175, 0, 0),
-"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -294,7 +319,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
-"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 7.598959, 8.877966, 9.377966)
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -331,8 +356,24 @@ tracks/8/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("19_bksdd")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_vdt1t")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_rtx86")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("22_nc83q")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("23_rtx86")
 }],
-"times": PackedFloat32Array(0.34663486)
+"times": PackedFloat32Array(0.34663486, 3.639666, 5.42236, 7.5269294, 9.284862)
 }
 tracks/8/use_blend = true
 
@@ -348,6 +389,10 @@ _data = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2065317413]
 environment = SubResource("Environment_0kpsk")
 compositor = SubResource("Compositor_ax415")
+
+[node name="AmbientWind" type="AudioStreamPlayer" parent="." unique_id=1694995433]
+stream = ExtResource("3_ea213")
+autoplay = true
 
 [node name="Island" parent="." unique_id=953826695 instance=ExtResource("2_edv0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032453537, -0.27433968, 0.0022025108)
