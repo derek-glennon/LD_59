@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rx0ustcldo2" path="res://prefabs/fern.tscn" id="13_c4dhx"]
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="15_sr8os"]
 [ext_resource type="PackedScene" uid="uid://b0k6h66672itf" path="res://prefabs/beach_ball.tscn" id="16_mpujm"]
+[ext_resource type="AudioStream" uid="uid://l63043ey1yq3" path="res://audio/fire_start.wav" id="19_bksdd"]
 
 [sub_resource type="Sky" id="Sky_hjump"]
 sky_material = ExtResource("1_0kpsk")
@@ -319,6 +320,21 @@ tracks/7/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CutsceneController/CutsceneAudio")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("19_bksdd")
+}],
+"times": PackedFloat32Array(0.34663486)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sr8os"]
 _data = {
@@ -351,6 +367,8 @@ leaving_camera_curve = SubResource("Curve_hjump")
 
 [node name="LeavingAnimationCameraPoint" type="Node3D" parent="CutsceneController" unique_id=1858609469]
 transform = Transform3D(1, 0, 0, 0, 0.91662866, 0.39973977, 0, -0.39973977, 0.91662866, 0, 9.386899, 19.279026)
+
+[node name="CutsceneAudio" type="AudioStreamPlayer" parent="CutsceneController" unique_id=2138319481]
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=289112751]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
@@ -541,7 +559,7 @@ attached_offset = Vector3(0, 3, -3)
 transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375, -5.3833706e-09, -0.6217114, -0.10069081, 0.77674735, 16.148277, -0.003866136, -4.8780746)
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
-transform = Transform3D(-3.0123982, 0, 0.107643686, 0, 3.01432, 0, -0.107643686, 0, -3.0123982, -18.59987, 0, -206.56029)
+transform = Transform3D(-3.0123985, 0, 0.10764369, 0, 3.01432, 0, -0.10764369, 0, -3.0123985, -18.59987, 0, -206.56029)
 bob_amplitude = 0.1999999999999994
 
 [node name="log_circle" parent="." unique_id=1155332218 node_paths=PackedStringArray("cutscene_controller") instance=ExtResource("15_sr8os")]

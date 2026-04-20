@@ -2,6 +2,7 @@ class_name LogCircle extends Node3D
 
 @export var logs : Array[MeshInstance3D] = []
 @export var cutscene_controller : CutsceneController
+@export var fire_crackle_audio : AudioStreamPlayer3D
 
 var _number_of_logs := 0
 
@@ -17,4 +18,6 @@ func _on_log_snap_area_body_entered(body: Node3D) -> void:
 		
 func start_fire() -> void:
 	cutscene_controller.play_leaving_animation()
+	prints("HERE")
+	fire_crackle_audio.play()
 		
