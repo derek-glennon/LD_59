@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dwwexh0hsxtmq" path="res://prefabs/background_object_island_2.tscn" id="12_3ixmc"]
 [ext_resource type="TextMesh" uid="uid://yfq8dms3y7fa" path="res://textmesh/question.tres" id="12_havtv"]
 [ext_resource type="PackedScene" uid="uid://bxrwmtn5xgb8r" path="res://prefabs/background_object_island_3.tscn" id="13_y5rry"]
+[ext_resource type="AudioStream" uid="uid://bymttqsfylidj" path="res://audio/opening_shark_huh.wav" id="20_xfre5"]
+[ext_resource type="AudioStream" uid="uid://d0uwq48ixmrrd" path="res://audio/opening_shark_aha.wav" id="21_wnrni"]
+[ext_resource type="AudioStream" uid="uid://bxddhjiqd1o6h" path="res://audio/crash.wav" id="22_tlhfc"]
 
 [sub_resource type="Sky" id="Sky_6tqpd"]
 sky_material = ExtResource("2_0iuqt")
@@ -546,6 +549,29 @@ tracks/20/keys = {
 "update": 0,
 "values": [Vector3(-1.1499751, 1.0198697, -0.10178223), Vector3(-1.1499751, 1.0198697, -0.10178223), Vector3(-1.14998, 10, -0.10178)]
 }
+tracks/21/type = "audio"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("OpeningCutsceneManager/CutsceneAudio")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("20_xfre5")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("21_wnrni")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("22_tlhfc")
+}],
+"times": PackedFloat32Array(3.7634645, 5.0509653, 9.557218)
+}
+tracks/21/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ejm5"]
 _data = {
@@ -571,6 +597,8 @@ script = ExtResource("4_y5rry")
 animation_player = NodePath("../AnimationPlayer")
 start_label = NodePath("../CanvasLayer/MarginContainer/VBoxContainer/Start")
 quit_label = NodePath("../CanvasLayer/MarginContainer/VBoxContainer/Quit")
+
+[node name="CutsceneAudio" type="AudioStreamPlayer" parent="OpeningCutsceneManager" unique_id=63526817]
 
 [node name="Water" type="MeshInstance3D" parent="." unique_id=1722487362]
 transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
