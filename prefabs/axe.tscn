@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_rd00o"]
 [ext_resource type="Script" uid="uid://c6m5blcrfktji" path="res://scripts/axe.gd" id="2_07ke2"]
-[ext_resource type="ArrayMesh" uid="uid://c8inf4sugrj6s" path="res://meshes/axe_mesh.res" id="2_v6rpw"]
+[ext_resource type="ArrayMesh" uid="uid://bmjdse8jdnh1i" path="res://meshes/axe_mesh.res" id="2_v6rpw"]
 [ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="3_v6rpw"]
 [ext_resource type="PackedScene" uid="uid://dpweuas5mfljq" path="res://prefabs/log.tscn" id="3_y3qyx"]
 [ext_resource type="Material" uid="uid://t1o1wo5l18g1" path="res://materials/mat_axe_head.tres" id="4_cfwhn"]
@@ -16,7 +16,7 @@ collision_mask = 3
 script = ExtResource("2_07ke2")
 log_scene = ExtResource("3_y3qyx")
 log_give_direction = Vector3(0, 1, 0)
-log_give_force = 499.9999999999985
+log_give_force = 99.9999999999997
 attached_offset = Vector3(0, -1, 0.5)
 attached_rotation = Vector3(0, -1.57, 0)
 
