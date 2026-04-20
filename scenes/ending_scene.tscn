@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://brkn4vsagyyad" path="res://materials/wavy_text.tres" id="6_5cw1r"]
 [ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="6_qar6k"]
 [ext_resource type="Script" uid="uid://7504nsiaar6y" path="res://scripts/constant_size_margin_container.gd" id="6_tnx00"]
+[ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="7_iryql"]
 [ext_resource type="Script" uid="uid://dx88xfrikr3g0" path="res://scripts/bg_spawn_point.gd" id="10_mgabq"]
 [ext_resource type="PackedScene" uid="uid://cyng6ufx51cbg" path="res://prefabs/background_object_island.tscn" id="11_iryql"]
 [ext_resource type="PackedScene" uid="uid://dwwexh0hsxtmq" path="res://prefabs/background_object_island_2.tscn" id="12_ol5xn"]
@@ -94,6 +95,19 @@ should_move_on_ready = false
 [node name="Camera3D" type="Camera3D" parent="." unique_id=95571897]
 transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -3.0559022e-10, 6.7425575, 12.3281145)
 
+[node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("7_iryql")]
+transform = Transform3D(0.37438348, 0, 0.927274, 0, 1, 0, -0.927274, 0, 0.37438348, 9.581871, 0.102139235, 0)
+bob_amplitude = 0.1999999999999994
+
+[node name="Skeleton3D" parent="shark_rigged/shark_rigged" parent_id_path=PackedInt32Array(1099023649, 1412335680) index="0" unique_id=1887323306]
+bones/0/position = Vector3(1.0185084, -0.29752803, 0)
+bones/1/position = Vector3(8.362704e-08, 1.0000002, -5.979038e-15)
+bones/1/scale = Vector3(0.99999994, 1, 1)
+bones/5/position = Vector3(2.3500423e-08, 1.2754216, 1.3445972e-06)
+bones/5/scale = Vector3(1, 0.9999999, 1)
+bones/6/position = Vector3(-1.199534e-07, 1.2284228, 9.109448e-08)
+bones/6/scale = Vector3(0.99999946, 1.0000001, 1.0000004)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1919425896]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1623696501]
@@ -147,3 +161,5 @@ scenes_to_spawn = Array[PackedScene]([ExtResource("11_iryql"), ExtResource("12_o
 spawn_delay = 19.99999999999994
 
 [connection signal="area_entered" from="EndBGArea" to="BGSpawnPoint" method="_on_end_bg_area_area_entered"]
+
+[editable path="shark_rigged"]
