@@ -378,6 +378,7 @@ should_spawn_in_on_ready = true
 
 [node name="tree" parent="Trees" unique_id=953250290 instance=ExtResource("7_ax415")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
+should_spawn_fruit = true
 
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)

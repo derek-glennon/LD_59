@@ -12,6 +12,10 @@ class_name IslandTree extends Node3D
 @export var shake_amplitude := 0.02
 @export var shake_wavelength := 10 * PI
 
+@export_category("Audio")
+@export var shake_audio : AudioStreamPlayer3D
+@export var fruit_leave_audio : AudioStreamPlayer3D
+
 
 var _spawned_fruit : InteractableBase
 var _starting_shake_rotation := 0.0
@@ -47,6 +51,7 @@ func shake_tree() -> void:
 	var shake_tween = create_tween()
 	shake_tween.tween_method(_on_shake_tween, 0.0, 1.0, shake_duration)
 	shake_tween.finished.connect(_on_shake_done)
+	shake_audio.play()
 	
 func _on_shake_tween(value : float) -> void:
 	var amplitude = lerpf(shake_amplitude, 0.0, value)
@@ -61,4 +66,5 @@ func _on_shake_done() -> void:
 		_spawned_fruit.gravity_scale = 1.0
 		_spawned_fruit = null
 		_current_regrow_timer = regrow_delay
+		fruit_leave_audio.play()
 	

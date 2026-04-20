@@ -8,11 +8,12 @@ var _number_of_logs := 0
 func _on_log_snap_area_body_entered(body: Node3D) -> void:
 	var log = body as Log
 	if log:
-		logs[_number_of_logs].visible = true
-		_number_of_logs += 1
-		if _number_of_logs == logs.size():
-			start_fire()
-		log.queue_free()
+		if _number_of_logs < logs.size():
+			logs[_number_of_logs].visible = true
+			_number_of_logs += 1
+			if _number_of_logs == logs.size():
+				start_fire()
+			log.queue_free()
 		
 func start_fire() -> void:
 	cutscene_controller.play_leaving_animation()

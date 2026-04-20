@@ -5,6 +5,10 @@
 [ext_resource type="Script" uid="uid://bakymxablschf" path="res://scripts/shark.gd" id="2_al8h1"]
 [ext_resource type="PackedScene" uid="uid://cn52y7ngohge2" path="res://prefabs/axe.tscn" id="3_lv536"]
 [ext_resource type="Material" uid="uid://dxt2kj20ty3lb" path="res://materials/mat_shark_tooth.tres" id="3_stte0"]
+[ext_resource type="AudioStream" uid="uid://c0muv4glxbqg3" path="res://audio/shark_yum.wav" id="6_xp7df"]
+[ext_resource type="AudioStream" uid="uid://cmdmn7imb2o44" path="res://audio/shark_give.wav" id="7_5lgvy"]
+[ext_resource type="AudioStream" uid="uid://7kku0udytcht" path="res://audio/shark_open.wav" id="8_qhegs"]
+[ext_resource type="AudioStream" uid="uid://6d80n4iyibpt" path="res://audio/shark_close.wav" id="9_m5tkj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_al8h1"]
 radius = 1.4570313
@@ -235,7 +239,7 @@ _data = {
 &"quick_chomp": SubResource("Animation_5lgvy")
 }
 
-[node name="shark_rigged" unique_id=1099023649 node_paths=PackedStringArray("animation_player", "axe_give_point", "axe_give_delay_timer") instance=ExtResource("1_wh052")]
+[node name="shark_rigged" unique_id=1099023649 node_paths=PackedStringArray("animation_player", "axe_give_point", "axe_give_delay_timer", "yum_audio", "give_audio", "open_audio", "close_audio") instance=ExtResource("1_wh052")]
 script = ExtResource("2_al8h1")
 animation_player = NodePath("shark_rigged/Skeleton3D/AnimationPlayer")
 bob_amplitude = 0.0999999999999997
@@ -245,8 +249,12 @@ axe_give_direction = Vector3(-1, 1, 2)
 axe_give_force = 499.9999999999985
 axe_give_point = NodePath("AxeGivePoint")
 axe_give_delay_timer = NodePath("AxeGiveDelay")
+yum_audio = NodePath("YumAudio")
+give_audio = NodePath("GiveAudio")
+open_audio = NodePath("OpenAudio")
+close_audio = NodePath("CloseAudio")
 
-[node name="Skeleton3D" parent="shark_rigged" parent_id_path=PackedInt32Array(52248682) index="0" unique_id=2041806559]
+[node name="Skeleton3D" parent="shark_rigged" parent_id_path=PackedInt32Array(1412335680) index="0" unique_id=1887323306]
 bones/1/rotation = Quaternion(-0.0067375517, -6.8949326e-08, -0.10063481, 0.99490064)
 bones/3/rotation = Quaternion(-0.0014256303, -3.6107302e-08, -0.19222263, 0.98135036)
 bones/3/scale = Vector3(1.0000002, 1, 1.0000001)
@@ -254,7 +262,7 @@ bones/5/rotation = Quaternion(-0.012643042, -4.8399045e-08, 0.332874, 0.9428866)
 bones/6/rotation = Quaternion(-0.012539893, 4.8244533e-09, 0.33015838, 0.9438423)
 bones/6/scale = Vector3(0.9999996, 1.0000002, 1.0000002)
 
-[node name="Shark" parent="shark_rigged/Skeleton3D" index="0" unique_id=2049350866]
+[node name="Shark" parent="shark_rigged/Skeleton3D" index="0" unique_id=715017740]
 surface_material_override/0 = ExtResource("2_5aedx")
 surface_material_override/1 = ExtResource("3_stte0")
 
@@ -289,6 +297,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9655932, 0, 0)
 [node name="AxeGiveDelay" type="Timer" parent="." index="2" unique_id=870398293]
 wait_time = 0.5
 one_shot = true
+
+[node name="YumAudio" type="AudioStreamPlayer3D" parent="." index="3" unique_id=1902221907]
+stream = ExtResource("6_xp7df")
+
+[node name="GiveAudio" type="AudioStreamPlayer3D" parent="." index="4" unique_id=1400696635]
+stream = ExtResource("7_5lgvy")
+
+[node name="OpenAudio" type="AudioStreamPlayer3D" parent="." index="5" unique_id=271041404]
+stream = ExtResource("8_qhegs")
+
+[node name="CloseAudio" type="AudioStreamPlayer3D" parent="." index="6" unique_id=1660104450]
+stream = ExtResource("9_m5tkj")
 
 [connection signal="body_entered" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_entered"]
 [connection signal="body_exited" from="shark_rigged/Skeleton3D/ChompArea" to="." method="_on_chomp_area_body_exited"]

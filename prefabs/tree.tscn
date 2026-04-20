@@ -5,16 +5,26 @@
 [ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="2_a4ng0"]
 [ext_resource type="Script" uid="uid://cm8mgwtan5wdp" path="res://scripts/tree.gd" id="2_k8ndx"]
 [ext_resource type="PackedScene" uid="uid://b5vyalv4asxvl" path="res://prefabs/fruit.tscn" id="3_k8ndx"]
+[ext_resource type="AudioStream" uid="uid://g8i85pukdbdl" path="res://audio/shake_tree_audio.wav" id="6_vfjb2"]
+[ext_resource type="AudioStream" uid="uid://cnkt64t47iohh" path="res://audio/fruit_leave.wav" id="7_x4xla"]
 
-[node name="tree" unique_id=244863639 node_paths=PackedStringArray("fruit_point") instance=ExtResource("1_odf6j")]
+[node name="tree" unique_id=244863639 node_paths=PackedStringArray("fruit_point", "shake_audio", "fruit_leave_audio") instance=ExtResource("1_odf6j")]
 script = ExtResource("2_k8ndx")
 fruit_scene = ExtResource("3_k8ndx")
 fruit_point = NodePath("FruitPoint")
 shake_amplitude = 0.03999999999999988
+shake_audio = NodePath("ShakeAudio")
+fruit_leave_audio = NodePath("FruitLeaveAudio")
 
-[node name="Tree_Mesh" parent="." index="0" unique_id=51451759]
+[node name="Tree_Mesh" parent="." index="0" unique_id=2112632660]
 surface_material_override/0 = ExtResource("2_a4ng0")
 surface_material_override/1 = ExtResource("2_3xb55")
 
 [node name="FruitPoint" type="Node3D" parent="." index="1" unique_id=1508114093]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9314811, 2.6644523, -3.0559022e-10)
+
+[node name="ShakeAudio" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1531857433]
+stream = ExtResource("6_vfjb2")
+
+[node name="FruitLeaveAudio" type="AudioStreamPlayer3D" parent="." index="3" unique_id=1538582466]
+stream = ExtResource("7_x4xla")

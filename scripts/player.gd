@@ -8,6 +8,9 @@ class_name Player extends CharacterBody3D
 @export var hand_animation_player : AnimationPlayer
 @export var emote_animation_player : AnimationPlayer
 @export var hand_attach_point : Node3D
+@export var player_jump_audio : AudioStreamPlayer3D
+@export var player_throw_audio : AudioStreamPlayer3D
+@export var player_crash_audio : AudioStreamPlayer3D
 
 @export_category("Movement")
 @export var should_move_on_ready := true
@@ -36,6 +39,8 @@ func _ready() -> void:
 		spawn_tween.finished.connect(on_spawn_done)
 		
 func on_spawn_done() -> void:
+	player_crash_audio.play()
+	await get_tree().create_timer(1.0).timeout
 	can_move = true
 	camera.reparent(self)
 	
@@ -50,6 +55,9 @@ func _physics_process(delta: float) -> void:
 		
 		# Grab/Throw
 		if Input.is_action_just_released("Click"):
+			var random_pitch = lerpf(0.9, 1.1, randf())
+			player_throw_audio.pitch_scale = random_pitch
+			player_throw_audio.play()
 			hand_animation_player.play("Grab")
 			# If we aren't holding anthing
 			# See if there is anthing close to grab
@@ -70,6 +78,9 @@ func _physics_process(delta: float) -> void:
 		# Handle jump.
 		if Input.is_action_just_pressed("Jump") and is_on_floor():
 			velocity.y = jump_velocity
+			var random_pitch = lerpf(0.9, 1.2, randf())
+			player_jump_audio.pitch_scale = random_pitch
+			player_jump_audio.play()
 
 		# Get the input direction and handle the movement/deceleration.
 		# As good practice, you should replace UI actions with custom gameplay actions.
