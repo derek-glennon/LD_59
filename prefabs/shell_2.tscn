@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c4ihxwtlp7ma5"]
+
+[ext_resource type="PackedScene" uid="uid://bm6fsexgkw2e4" path="res://meshes/shell_mesh_2.glb" id="1_3m3oe"]
+[ext_resource type="Material" uid="uid://dvjp7ae74cvi7" path="res://materials/mat_shell_2.tres" id="2_1ygf1"]
+
+[node name="shell_2" unique_id=63550853 instance=ExtResource("1_3m3oe")]
+
+[node name="Shell2" parent="." index="0" unique_id=908424288]
+material_override = ExtResource("2_1ygf1")

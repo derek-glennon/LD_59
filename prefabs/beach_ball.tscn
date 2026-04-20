@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b0k6h66672itf"]
+
+[ext_resource type="PackedScene" uid="uid://v7rkrsclixlj" path="res://prefabs/interactable_base.tscn" id="1_770nw"]
+[ext_resource type="Material" uid="uid://ds5d6urq7reo3" path="res://materials/mat_beach_ball.tres" id="2_maji5"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_maji5"]
+friction = 0.2
+bounce = 0.8
+
+[sub_resource type="SphereMesh" id="SphereMesh_maji5"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7jkwg"]
+radius = 0.46334916
+
+[node name="BeachBall" unique_id=888649470 instance=ExtResource("1_770nw")]
+physics_material_override = SubResource("PhysicsMaterial_maji5")
+linear_damp = 2.0
+angular_damp = 1.0
+
+[node name="Mesh" parent="." index="0" unique_id=3919643]
+material_override = ExtResource("2_maji5")
+mesh = SubResource("SphereMesh_maji5")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="2" unique_id=295802040]
+shape = SubResource("SphereShape3D_7jkwg")

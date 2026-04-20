@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ds5d6urq7reo3"]
+
+[ext_resource type="Shader" uid="uid://l5535e5slnga" path="res://shaders/uv_gradient_vertex_offset.gdshader" id="1_ggvau"]
+[ext_resource type="Texture2D" uid="uid://ct3m231ongihf" path="res://textures/checker.png" id="2_ggvau"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ggvau")
+shader_parameter/albedo_texture = ExtResource("2_ggvau")
+shader_parameter/uv_scale = Vector2(5, 5)
+shader_parameter/uv_speed = Vector2(0, 0)
+shader_parameter/has_overlay = false
+shader_parameter/overlay_uv_scale = Vector2(1, 1)
+shader_parameter/color_bottom = Color(0, 0, 0, 1)
+shader_parameter/color_top = Color(1, 1, 1, 1)
+shader_parameter/smoothstep_min = 0.999999999999997
+shader_parameter/smoothstep_max = 1.0
+shader_parameter/emissive_intensity = 1.0
+shader_parameter/roughness = 0.7999999999999976
+shader_parameter/noise_uv_scale = Vector2(1, 1)
+shader_parameter/noise_uv_speed = Vector2(0, 0)
+shader_parameter/noise_intensity = 1.0
+shader_parameter/sine_wavelength = 1.0
+shader_parameter/sine_speed = 1.0
+shader_parameter/sine_amplitude = 0.0

@@ -8,11 +8,17 @@
 [ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="5_37q66"]
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
+[ext_resource type="PackedScene" uid="uid://4dtmq1ir54ke" path="res://prefabs/shell.tscn" id="9_hjump"]
 [ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
 [ext_resource type="PackedScene" uid="uid://bnaig4c0o2f1u" path="res://prefabs/plank.tscn" id="10_jr8id"]
+[ext_resource type="PackedScene" uid="uid://c4ihxwtlp7ma5" path="res://prefabs/shell_2.tscn" id="10_sr8os"]
+[ext_resource type="PackedScene" uid="uid://cseo5ehxjkowm" path="res://prefabs/pebble_01.tscn" id="11_qkgtt"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="12_2vh7n"]
+[ext_resource type="PackedScene" uid="uid://cq2u780x6g7cp" path="res://prefabs/pebble_02.tscn" id="12_ebpcw"]
+[ext_resource type="PackedScene" uid="uid://c3rx0ustcldo2" path="res://prefabs/fern.tscn" id="13_c4dhx"]
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="15_sr8os"]
+[ext_resource type="PackedScene" uid="uid://b0k6h66672itf" path="res://prefabs/beach_ball.tscn" id="16_mpujm"]
 
 [sub_resource type="Sky" id="Sky_hjump"]
 sky_material = ExtResource("1_0kpsk")
@@ -372,7 +378,6 @@ should_spawn_in_on_ready = true
 
 [node name="tree" parent="Trees" unique_id=953250290 instance=ExtResource("7_ax415")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
-should_spawn_fruit = true
 
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)
@@ -384,7 +389,7 @@ transform = Transform3D(-0.9981121, 0, -0.061419666, 0, 1, 0, 0.061419666, 0, -0
 transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 4.1867905, 0.34009326, 10.488681)
 
 [node name="tree5" parent="Trees" unique_id=358758512 instance=ExtResource("7_ax415")]
-transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 9.6366825, 0.34009326, 6.379093)
+transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 11.499234, 0.34009326, 6.0669427)
 
 [node name="tree6" parent="Trees" unique_id=1104843776 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 7.9781456, 2.8144212, -6.5174522)
@@ -398,6 +403,117 @@ transform = Transform3D(-0.2907467, 0, -0.9568001, 0, 1, 0, 0.9568001, 0, -0.290
 
 [node name="rocks" parent="." unique_id=621823909 instance=ExtResource("8_cclv5")]
 transform = Transform3D(-0.7298983, 0, 0.6835559, 0, 1, 0, -0.6835559, 0, -0.7298983, 0, 0, 0)
+
+[node name="Shells" type="Node3D" parent="." unique_id=15600415]
+
+[node name="Shell" parent="Shells" unique_id=764633683 instance=ExtResource("9_hjump")]
+transform = Transform3D(-0.8334396, 0, -0.22331955, 0, 0.8628402, 0, 0.22331955, 0, -0.8334396, 3.8583694, 0.09364435, 11.187168)
+
+[node name="Shell2" parent="Shells" unique_id=2065035430 instance=ExtResource("9_hjump")]
+transform = Transform3D(-0.5738136, 0, 0.4766887, 0, 0.7459854, 0, -0.4766887, 0, -0.5738136, -10.124035, 0.35360238, 9.056832)
+
+[node name="Shell3" parent="Shells" unique_id=1724099499 instance=ExtResource("9_hjump")]
+transform = Transform3D(-0.7437987, 0, 0.057076722, 0, 0.74598545, 0, -0.057076722, 0, -0.7437987, 5.8312902, 0.35360238, -1.2605741)
+
+[node name="shell_2" parent="Shells" unique_id=63550853 instance=ExtResource("10_sr8os")]
+transform = Transform3D(0.29698923, 0.32627434, -0.13467093, 0, 0.17599879, 0.4264015, 0.35297477, -0.27452376, 0.1133107, -6.4191346, 0.36438572, 11.560508)
+
+[node name="shell_3" parent="Shells" unique_id=596792990 instance=ExtResource("10_sr8os")]
+transform = Transform3D(0.20981658, -0.37974128, 0.15673964, -5.259734e-09, 0.17599878, 0.42640144, -0.4108172, -0.1939452, 0.08005157, 11.962809, 0.36438572, 6.999978)
+
+[node name="shell_4" parent="Shells" unique_id=1786274094 instance=ExtResource("10_sr8os")]
+transform = Transform3D(-0.30899462, 0.31660518, -0.13067997, -5.2597344e-09, 0.17599879, 0.4264015, 0.3425144, 0.285621, -0.11789109, -14.3889475, 0.23671842, -6.0457954)
+
+[node name="Pebbles" type="Node3D" parent="." unique_id=1975846998]
+
+[node name="pebble_01" parent="Pebbles" unique_id=562419009 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.337487, 0.28178728, 8.069008)
+
+[node name="pebble_02" parent="Pebbles" unique_id=1537327274 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.45934647, 0, -1.2750344, 0, 1.7109224, 0, 1.2137873, 0, 0.48252478, -7.6939354, 0.28654242, 7.6088376)
+
+[node name="pebble_03" parent="Pebbles" unique_id=7446834 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.28831276, 8.742278e-08, 0.9575363, 2.5205102e-08, -1, 8.371048e-08, 0.9575363, 0, -0.28831276, 2.7180438, 0.28178728, 1.6022825)
+
+[node name="pebble_04" parent="Pebbles" unique_id=124906752 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.382468, 6.4243785e-08, 1.9960858, 3.343641e-08, -0.7348632, 1.7450334e-07, 1.270242, 0, -0.6010185, 3.2239022, 0.27588892, 2.0623581)
+
+[node name="pebble_05" parent="Pebbles" unique_id=1317832297 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.28831276, 8.742278e-08, 0.9575363, 0.43254516, -0.8921561, -0.13023862, 0.8542718, 0.45172715, -0.25722003, 3.1573653, 0.28178728, 1.631069)
+
+[node name="pebble_06" parent="Pebbles" unique_id=32040137 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.69886845, 1.3988638, 0.2778258, -0.45934656, -7.47868e-08, 1.2750345, 0.99240243, -0.9851064, 0.39451617, -9.591807, 0.23987126, -5.8687716)
+
+[node name="pebble_07" parent="Pebbles" unique_id=1724897325 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.746998, -1.3485377, 0.29695886, 0.8040322, 0.42167276, -1.0160203, 0.6926798, 0.96482736, 0.8591052, -9.127853, 0.15527105, -5.760028)
+
+[node name="pebble_08" parent="Pebbles" unique_id=917891290 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.94111073, 0.33809853, 0, -0.21538983, 0.5995462, -0.77081233, -0.26061052, 0.72541976, 0.6370623, 5.4544554, 0.28178728, 7.660313)
+
+[node name="pebble_09" parent="Pebbles" unique_id=1525490441 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(-5.5445447, 0, -1.394988, 0, 5.717339, 0, 1.394988, 0, -5.5445447, 6.339278, 0.31101155, 9.639138)
+
+[node name="pebble_10" parent="Pebbles" unique_id=812482286 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(2.2808812, 4.9461384, -0.47966892, -1.3807398, -2.4492314e-07, -3.5890486, -4.2850623, 2.632763, 0.9011479, 6.53012, -0.25902057, 8.104216)
+
+[node name="pebble_11" parent="Pebbles" unique_id=734646108 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(-9.26203, -5.174024, -3.8959374, 0.75644976, -27.30806, 2.0924952, -5.269553, 5.174025, 7.1480746, 7.886488, 0.3110112, 7.8669715)
+
+[node name="pebble_12" parent="Pebbles" unique_id=583979537 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.04293801, 0.117744625, -0.40438467, -0.004548482, -0.40632737, -0.11879328, -0.4211533, 0.016392883, -0.039945398, 5.4731708, 0.25058103, 8.361073)
+
+[node name="pebble_13" parent="Pebbles" unique_id=1423584597 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(-4.981506, -2.7828064, -2.0953977, 1.0647502, 11.328271, -2.8969188, 2.6579015, -9.753688, -2.7667468, 5.327013, 3.0961971, -10.1146555)
+
+[node name="pebble_14" parent="Pebbles" unique_id=437060157 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(0.23235734, 4.9019527, -1.3893716, 2.26632, 1.785379, 0.79145306, 1.1886927, -4.3621397, -1.2373717, -5.2944374, 3.096197, -6.8556457)
+
+[node name="pebble_15" parent="Pebbles" unique_id=836343940 instance=ExtResource("12_ebpcw")]
+transform = Transform3D(1.6991457, -4.6070304, -0.079457305, 0.102682084, -0.465421, 1.0216444, -1.47195, -5.3505945, -0.020452587, -12.034864, 1.4589217, 3.5816405)
+
+[node name="pebble_16" parent="Pebbles" unique_id=1966308020 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.21308662, 0, -0.5914768, 0, 0.7936812, 0, 0.5630648, 0, 0.22383884, -11.26208, 1.4795649, 3.8255446)
+
+[node name="pebble_17" parent="Pebbles" unique_id=1538897289 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(0.13608964, 0, -0.37775183, 0, 0.5068914, 0, 0.35960627, 0, 0.14295663, -11.293006, 1.4795649, 3.1069877)
+
+[node name="pebble_18" parent="Pebbles" unique_id=1043378620 instance=ExtResource("11_qkgtt")]
+transform = Transform3D(-0.2616338, 0.46405345, 0.726232, -0.12458848, -0.97450423, 0.34582758, 0.7657306, 1.451837e-08, 0.3044059, -4.835466, 2.8468227, -5.9039307)
+
+[node name="Ferns" type="Node3D" parent="." unique_id=385243555]
+
+[node name="fern" parent="Ferns" unique_id=429886961 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.81805587, 0.00466457, 0.29493493, -0.0042442544, 0.86959875, -0.0019810025, -0.29494128, 0.0004240898, 0.8180667, 1.8624537, 2.8637557, -3.4049766)
+
+[node name="fern2" parent="Ferns" unique_id=852239631 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.6967005, 0, -0.38826072, 0, 0.79758257, 0, 0.38826072, 0, 0.6967005, 5.806366, 2.863756, -6.922462)
+
+[node name="fern3" parent="Ferns" unique_id=1926027101 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.98112875, 0, -0.19335546, 0, 1, 0, 0.19335546, 0, 0.98112875, 6.9682307, 2.863756, -3.8094184)
+
+[node name="fern4" parent="Ferns" unique_id=1570809950 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.9114228, 0, -0.41147107, 0, 1, 0, 0.41147107, 0, 0.9114228, -3.324945, 2.863756, -6.0144787)
+
+[node name="fern5" parent="Ferns" unique_id=1471156769 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.6651448, 0, 0.537593, 0, 0.85523325, 0, -0.537593, 0, 0.6651448, -6.6763887, 2.863756, -7.0120745)
+
+[node name="fern6" parent="Ferns" unique_id=1803309303 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(1.2919968, 0, -0.5832851, 0, 1.4175603, 0, 0.5832851, 0, 1.2919968, -2.8093026, 3.6216426, -11.681496)
+
+[node name="fern7" parent="Ferns" unique_id=2025820762 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(1.1672372, 0, -0.5269611, 0, 1.2806759, 0, 0.5269611, 0, 1.1672372, 1.079104, 3.6216426, -8.275539)
+
+[node name="fern8" parent="Ferns" unique_id=1528513912 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.774758, 0, -0.34977233, 0, 0.8500533, 0, 0.34977233, 0, 0.774758, -10.456907, 1.3956101, -1.0591092)
+
+[node name="fern9" parent="Ferns" unique_id=948065127 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(1.023986, 0, -0.46228886, 0, 1.1235027, 0, 0.46228886, 0, 1.023986, -10.558809, 1.3956101, 2.6810527)
+
+[node name="fern10" parent="Ferns" unique_id=2102090032 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.45563704, 0, -0.20570196, 0, 0.4999184, 0, 0.20570196, 0, 0.45563704, -13.1821995, 1.3956101, 3.1721563)
+
+[node name="fern11" parent="Ferns" unique_id=672108370 instance=ExtResource("13_c4dhx")]
+transform = Transform3D(0.98112875, 0, -0.19335546, 0, 1, 0, 0.19335546, 0, 0.98112875, 6.9682307, 2.863756, -3.8094184)
 
 [node name="Crate" parent="." unique_id=104961257 instance=ExtResource("9_pal10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1725588, 0.59695613, 12.297435)
@@ -417,7 +533,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.516768, 1.8751243, 1.2273
 attached_offset = Vector3(0, 3, -3)
 
 [node name="Crate3" parent="." unique_id=1843208050 instance=ExtResource("9_pal10")]
-transform = Transform3D(0.7722737, 0, 0.6352899, 0, 1, 0, -0.6352899, 0, 0.7722737, -12.516768, 2.7488017, 1.2273672)
+transform = Transform3D(0.7722737, 0, 0.6352899, 0, 1, 0, -0.6352899, 0, 0.7722737, 8.558645, 3.2364771, 7.606864)
 attached_offset = Vector3(0, 3, -3)
 
 [node name="shark_rigged" parent="." unique_id=1099023649 instance=ExtResource("11_wjfqx")]
@@ -433,5 +549,19 @@ cutscene_controller = NodePath("../CutsceneController")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=218958646]
 libraries/ = SubResource("AnimationLibrary_sr8os")
+
+[node name="plank_mesh4" parent="." unique_id=310162119 instance=ExtResource("10_jr8id")]
+transform = Transform3D(0.9828626, -0.18420303, 0.0070945323, 0.1843161, 0.9826245, -0.021839274, -0.0029482841, 0.022772599, 0.99973667, 7.957966, 0.22914803, 10.07109)
+
+[node name="plank_mesh5" parent="." unique_id=1994593877 instance=ExtResource("10_jr8id")]
+transform = Transform3D(0.3774959, -0.05025824, 0.92464674, 0.18431607, 0.9826244, -0.021839274, -0.90748245, 0.17867135, 0.38020012, 7.957966, 0.22914803, 10.07109)
+
+[node name="BeachBall" parent="." unique_id=888649470 instance=ExtResource("16_mpujm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.73499, 0.70832205, -12.696412)
+mass = 0.4
+gravity_scale = 0.5
+linear_damp = 0.0
+angular_damp = 2.0
+attached_offset = Vector3(-0.5, 1, -4)
 
 [editable path="log_circle"]

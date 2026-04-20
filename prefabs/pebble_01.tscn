@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cseo5ehxjkowm"]
+
+[ext_resource type="PackedScene" uid="uid://dfjvoaxeq8u5p" path="res://meshes/pebble_01.glb" id="1_ifohe"]
+[ext_resource type="Material" uid="uid://deny1tubhl1ph" path="res://materials/mat_pebble.tres" id="2_0lnxf"]
+
+[node name="pebble_01" unique_id=562419009 instance=ExtResource("1_ifohe")]
+
+[node name="Pebble_01" parent="." index="0" unique_id=1239349643]
+material_override = ExtResource("2_0lnxf")
