@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bxrwmtn5xgb8r"]
+
+[ext_resource type="Script" uid="uid://irf3018d0wtm" path="res://scripts/background_object.gd" id="1_agtdj"]
+[ext_resource type="Material" uid="uid://3oi66t64x5ug" path="res://materials/mat_island_sand.tres" id="2_lmr0d"]
+[ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="3_nxbbq"]
+[ext_resource type="Material" uid="uid://ccvaphsje8btm" path="res://materials/mat_leaves.tres" id="4_0llr2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_joobn"]
+radius = 27.554346
+
+[sub_resource type="SphereMesh" id="SphereMesh_cr6kd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_agtdj"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_lmr0d"]
+
+[node name="BackgroundObject_Island" type="Node3D" unique_id=17681382]
+script = ExtResource("1_agtdj")
+move_speed = 24.999999999999925
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1008956511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=460832782]
+shape = SubResource("SphereShape3D_joobn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1609605837]
+transform = Transform3D(-20.160347, 0, -1.7624735e-06, 0, 20.160347, 0, 1.7624735e-06, 0, -20.160347, 0, 0, 0)
+material_override = ExtResource("2_lmr0d")
+mesh = SubResource("SphereMesh_cr6kd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=2027654820]
+transform = Transform3D(6.061557, 0, 0, 0, 6.061557, 0, 0, 0, 6.061557, 0, 11.255856, 0)
+material_override = ExtResource("3_nxbbq")
+mesh = SubResource("BoxMesh_agtdj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=833303460]
+transform = Transform3D(6.7374473, 0, 0, 0, 3.6854022, 0, 0, 0, 7.8639016, 0, 16.119509, 0)
+material_override = ExtResource("4_0llr2")
+mesh = SubResource("PrismMesh_lmr0d")

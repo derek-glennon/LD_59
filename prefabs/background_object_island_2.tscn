@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dwwexh0hsxtmq"]
+
+[ext_resource type="Script" uid="uid://irf3018d0wtm" path="res://scripts/background_object.gd" id="1_l8khu"]
+[ext_resource type="Material" uid="uid://3oi66t64x5ug" path="res://materials/mat_island_sand.tres" id="2_k31ch"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_joobn"]
+radius = 27.554346
+
+[sub_resource type="SphereMesh" id="SphereMesh_cr6kd"]
+
+[node name="BackgroundObject_Island" type="Node3D" unique_id=17681382]
+script = ExtResource("1_l8khu")
+move_speed = 24.999999999999925
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1008956511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=460832782]
+shape = SubResource("SphereShape3D_joobn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1609605837]
+transform = Transform3D(-20.160347, 0, -1.7624735e-06, 0, 20.160347, 0, 1.7624735e-06, 0, -20.160347, 0, 0, 0)
+material_override = ExtResource("2_k31ch")
+mesh = SubResource("SphereMesh_cr6kd")

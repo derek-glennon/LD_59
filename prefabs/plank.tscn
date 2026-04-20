@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bnaig4c0o2f1u"]
+
+[ext_resource type="PackedScene" uid="uid://day8x8fxwkvt1" path="res://meshes/plank_mesh.glb" id="1_ingms"]
+[ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="2_appjt"]
+
+[node name="plank_mesh" unique_id=1652033299 instance=ExtResource("1_ingms")]
+
+[node name="Plank" parent="." index="0" unique_id=465423981]
+material_override = ExtResource("2_appjt")

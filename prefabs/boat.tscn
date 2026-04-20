@@ -12,6 +12,8 @@ size = Vector3(3.1718445, 0.46826172, 1.5715332)
 
 [node name="Boat" unique_id=890121887 instance=ExtResource("1_e2cyf")]
 script = ExtResource("2_pq28i")
+bob_amplitude = 0.4999999999999985
+bob_speed = 0.000999999999999997
 
 [node name="Boat" parent="." index="0" unique_id=635634728]
 surface_material_override/0 = ExtResource("2_38kwv")

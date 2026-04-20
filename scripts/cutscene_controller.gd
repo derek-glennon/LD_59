@@ -32,8 +32,9 @@ func on_animation_done(anim_name : String) -> void:
 		"leaving_setup":
 			return_from_leaving_animation()
 		"leaving":
-			# TODO: scene change
-			pass
+			boat.visible = false
+			await get_tree().create_timer(4.0).timeout
+			get_tree().change_scene_to_file("res://scenes/ending_scene.tscn")
 
 func play_leaving_animation() -> void:
 	player.can_move = false

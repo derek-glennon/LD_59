@@ -9,6 +9,7 @@ class_name Player extends CharacterBody3D
 @export var hand_attach_point : Node3D
 
 @export_category("Movement")
+@export var should_move_on_ready := true
 @export var move_speed = 5.0
 @export var jump_velocity = 4.5
 
@@ -20,6 +21,9 @@ var can_move := true
 var _interactables_in_range : Array[InteractableBase] = []
 var _trees_in_range : Array[IslandTree] = []
 var _grabbed_interactable : InteractableBase
+
+func _ready() -> void:
+	can_move = should_move_on_ready
 
 func _physics_process(delta: float) -> void:
 	if can_move:

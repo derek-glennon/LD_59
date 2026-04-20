@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://o48gw4rtbmfo"]
+
+[ext_resource type="Script" uid="uid://cuw2e1r1pueg5" path="res://scripts/opening_scene.gd" id="1_7igwe"]
+[ext_resource type="Material" uid="uid://bkboe4foqiksr" path="res://materials/mat_sky.tres" id="2_0iuqt"]
+[ext_resource type="Script" uid="uid://b8pr27o8nubiw" path="res://compositor/pixelate_ce.gd" id="3_wpum6"]
+[ext_resource type="Material" uid="uid://do7m641dib7ai" path="res://materials/mat_water_menu.tres" id="4_akv2y"]
+[ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="5_3ixmc"]
+[ext_resource type="PackedScene" uid="uid://baeq6vux1byk7" path="res://prefabs/player.tscn" id="6_y5rry"]
+[ext_resource type="Script" uid="uid://7504nsiaar6y" path="res://scripts/constant_size_margin_container.gd" id="7_5ejm5"]
+[ext_resource type="Material" uid="uid://brkn4vsagyyad" path="res://materials/wavy_text.tres" id="8_lwios"]
+[ext_resource type="Script" uid="uid://dx88xfrikr3g0" path="res://scripts/bg_spawn_point.gd" id="9_7igwe"]
+[ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="9_pcgpk"]
+[ext_resource type="PackedScene" uid="uid://cyng6ufx51cbg" path="res://prefabs/background_object_island.tscn" id="10_0iuqt"]
+[ext_resource type="PackedScene" uid="uid://dwwexh0hsxtmq" path="res://prefabs/background_object_island_2.tscn" id="12_3ixmc"]
+[ext_resource type="PackedScene" uid="uid://bxrwmtn5xgb8r" path="res://prefabs/background_object_island_3.tscn" id="13_y5rry"]
+
+[sub_resource type="Sky" id="Sky_6tqpd"]
+sky_material = ExtResource("2_0iuqt")
+
+[sub_resource type="Environment" id="Environment_agp5w"]
+background_mode = 2
+sky = SubResource("Sky_6tqpd")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.1
+fog_mode = 1
+fog_light_color = Color(0.48452926, 0.713524, 0.8753262, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_height = 328.0
+fog_height_density = 0.0015
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.66498655, 0.84477913, 0.9718531, 1)
+volumetric_fog_emission = Color(0.66498655, 0.84477913, 0.9718531, 1)
+volumetric_fog_emission_energy = 0.2
+volumetric_fog_anisotropy = 0.55
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_wpum6"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = true
+script = ExtResource("3_wpum6")
+metadata/_custom_type_script = "uid://b8pr27o8nubiw"
+
+[sub_resource type="Compositor" id="Compositor_akv2y"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_wpum6")])
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_agp5w"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_i70nl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5cw1r"]
+font = ExtResource("9_pcgpk")
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7igwe"]
+size = Vector3(100, 1000, 5000)
+
+[node name="OpeningScene" type="Node3D" unique_id=1120560489]
+script = ExtResource("1_7igwe")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=705354861]
+environment = SubResource("Environment_agp5w")
+compositor = SubResource("Compositor_akv2y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=598566025]
+transform = Transform3D(-0.30868214, 0.487018, -0.81702435, -0.9361242, -0.0033992827, 0.35165328, 0.16848418, 0.8733853, 0.45695862, -3.0559022e-10, 10, -3.0559022e-10)
+light_cull_mask = 4294967293
+
+[node name="Water" type="MeshInstance3D" parent="." unique_id=1722487362]
+transform = Transform3D(583.6481, 0, 0, 0, 583.6481, 0, 0, 0, 583.6481, 0, 0, 0)
+material_override = ExtResource("4_akv2y")
+mesh = SubResource("PlaneMesh_agp5w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Water" unique_id=764962458]
+transform = Transform3D(0.0017133614, 0, 0, 0, 0.0017133614, 0, 0, 0, 0.0017133614, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Water/StaticBody3D" unique_id=424523483]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26147175, 0)
+shape = SubResource("WorldBoundaryShape3D_i70nl")
+
+[node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("5_3ixmc")]
+transform = Transform3D(-3.0026927, 0.009779944, -0.2643351, 0.009883978, 3.0143034, -0.0007520922, 0.26433122, -0.0016159583, -3.0027087, -3.6184273, 0, 3.0601969)
+
+[node name="Player" parent="BoatBG" unique_id=2113885086 instance=ExtResource("6_y5rry")]
+transform = Transform3D(1.0000005, 7.421477e-10, -4.4703484e-08, 1.1277734e-10, 1.0000002, -2.3283064e-10, 7.450581e-09, 5.820766e-11, 1.0000005, -1.1499751, 1.0198697, -0.10178223)
+should_move_on_ready = false
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=95571897]
+transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -3.0559022e-10, 6.7425575, 12.3281145)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1919425896]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=1623696501]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -79.0
+offset_bottom = 79.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("7_5ejm5")
+right_offset_ratio = 0.12254999999999963
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer" unique_id=424429848]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=170070681]
+material = ExtResource("8_lwios")
+layout_mode = 2
+mouse_filter = 0
+text = "Start"
+label_settings = SubResource("LabelSettings_5cw1r")
+
+[node name="Quit" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer" unique_id=444642187]
+material = ExtResource("8_lwios")
+layout_mode = 2
+mouse_filter = 0
+text = "Quit"
+label_settings = SubResource("LabelSettings_5cw1r")
+
+[node name="EndBGArea" type="Area3D" parent="." unique_id=1564792492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -573.96826, -3.0559022e-10, -3.0559022e-10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndBGArea" unique_id=1176381370]
+shape = SubResource("BoxShape3D_7igwe")
+
+[node name="BGSpawnPoint" type="Node3D" parent="." unique_id=1027706244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 525.10614, 0, -357.90518)
+script = ExtResource("9_7igwe")
+scenes_to_spawn = Array[PackedScene]([ExtResource("10_0iuqt"), ExtResource("12_3ixmc"), ExtResource("13_y5rry")])
+spawn_delay = 19.99999999999994
+
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Start" to="." method="_on_start_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="area_entered" from="EndBGArea" to="BGSpawnPoint" method="_on_end_bg_area_area_entered"]

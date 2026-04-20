@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://brkn4vsagyyad"]
+
+[ext_resource type="Shader" uid="uid://chey3y1s16pgm" path="res://shaders/wavy_text.gdshader" id="1_2vq7y"]
+
+[resource]
+shader = ExtResource("1_2vq7y")
+shader_parameter/sine_wavelength = 7.999999999999976
+shader_parameter/sine_amplitude = 1.999999999999994
+shader_parameter/sine_speed = 2.0

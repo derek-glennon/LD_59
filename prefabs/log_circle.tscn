@@ -4,9 +4,9 @@
 [ext_resource type="Material" uid="uid://dbwey2480xryg" path="res://materials/mat_wood.tres" id="2_iqsfh"]
 [ext_resource type="Script" uid="uid://bi03wrequum10" path="res://scripts/log_circle.gd" id="2_s1caa"]
 [ext_resource type="PackedScene" uid="uid://bytt6kfs5ufi1" path="res://prefabs/fire.tscn" id="5_3gdxe"]
-[ext_resource type="ArrayMesh" uid="uid://dop2kcvwnwhe5" path="res://meshes/log_mesh.res" id="5_mxo3c"]
+[ext_resource type="ArrayMesh" uid="uid://dyxj1nsbb78bu" path="res://meshes/log_mesh.res" id="5_mxo3c"]
 [ext_resource type="Material" uid="uid://b4wcp1vhtmebh" path="res://materials/mat_smoke.tres" id="6_5qrq7"]
-[ext_resource type="ArrayMesh" uid="uid://d4cigrn337kca" path="res://meshes/smoke_mesh.res" id="7_rjydp"]
+[ext_resource type="ArrayMesh" uid="uid://daoehvswbqo38" path="res://meshes/smoke_mesh.res" id="7_rjydp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1dmqj"]
 radius = 0.8945566
@@ -27,11 +27,9 @@ initial_velocity_max = 1.0
 gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_c4dhx")
 
-[node name="log_circle" unique_id=1155332218 node_paths=PackedStringArray("logs", "fire", "smoke") instance=ExtResource("1_1dmqj")]
+[node name="log_circle" unique_id=1155332218 node_paths=PackedStringArray("logs") instance=ExtResource("1_1dmqj")]
 script = ExtResource("2_s1caa")
 logs = [NodePath("Log"), NodePath("Log2"), NodePath("Log3")]
-fire = NodePath("Fire")
-smoke = NodePath("GPUParticles3D")
 
 [node name="Log_Circle" parent="." index="0" unique_id=1620732985]
 transform = Transform3D(0.61770785, 0, 0, 0, 0.61770785, 0, 0, 0, 0.61770785, 0, 0, 0)
@@ -45,19 +43,19 @@ shape = SubResource("SphereShape3D_1dmqj")
 [node name="Log" type="MeshInstance3D" parent="." index="2" unique_id=1927923297]
 transform = Transform3D(0.7801645, -0.33968478, 0.52531666, 0.39920327, 0.9168624, 1.4901161e-08, -0.48164308, 0.20970811, 0.85090685, -0.1028854, 0.063745156, 0.063446574)
 visible = false
-material_overlay = ExtResource("2_iqsfh")
+material_override = ExtResource("2_iqsfh")
 mesh = ExtResource("5_mxo3c")
 
 [node name="Log2" type="MeshInstance3D" parent="." index="3" unique_id=431504763]
 transform = Transform3D(0.60884684, 0.045272104, -0.7919946, 0.20165016, 0.95674443, 0.20970806, 0.7672307, -0.28738567, 0.5733816, 0.002145633, -0.0011097714, -0.08246825)
 visible = false
-material_overlay = ExtResource("2_iqsfh")
+material_override = ExtResource("2_iqsfh")
 mesh = ExtResource("5_mxo3c")
 
 [node name="Log3" type="MeshInstance3D" parent="." index="4" unique_id=756938188]
 transform = Transform3D(-0.5835067, 0.28931051, -0.7588274, 0.20165014, 0.95674443, 0.20970808, 0.7866749, -0.030651413, -0.6166058, 0.070500076, -0.0011097714, 0.061662994)
 visible = false
-material_overlay = ExtResource("2_iqsfh")
+material_override = ExtResource("2_iqsfh")
 mesh = ExtResource("5_mxo3c")
 
 [node name="Fire" parent="." index="5" unique_id=1616359922 instance=ExtResource("5_3gdxe")]

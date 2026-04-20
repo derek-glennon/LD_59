@@ -9,18 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://dwmnn1iq6enmy" path="res://prefabs/tree.tscn" id="7_ax415"]
 [ext_resource type="PackedScene" uid="uid://bqttn7t7h2ehd" path="res://prefabs/rocks.tscn" id="8_cclv5"]
 [ext_resource type="PackedScene" uid="uid://xku7ppxyi5fu" path="res://prefabs/crate.tscn" id="9_pal10"]
-[ext_resource type="Material" uid="uid://c4gbicoto7js5" path="res://materials/mat_crate.tres" id="10_wjfqx"]
-[ext_resource type="ArrayMesh" uid="uid://ko55nawrxwfk" path="res://meshes/plank_mesh.res" id="10_wkuwm"]
+[ext_resource type="PackedScene" uid="uid://bnaig4c0o2f1u" path="res://prefabs/plank.tscn" id="10_jr8id"]
 [ext_resource type="PackedScene" uid="uid://bkgkht0o5ilrc" path="res://prefabs/shark_rigged.tscn" id="11_wjfqx"]
 [ext_resource type="PackedScene" uid="uid://bypnfosxek5ra" path="res://prefabs/boat.tscn" id="12_2vh7n"]
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="15_sr8os"]
 
-[sub_resource type="Sky" id="Sky_6tqpd"]
+[sub_resource type="Sky" id="Sky_hjump"]
 sky_material = ExtResource("1_0kpsk")
 
 [sub_resource type="Environment" id="Environment_0kpsk"]
 background_mode = 2
-sky = SubResource("Sky_6tqpd")
+sky = SubResource("Sky_hjump")
 ambient_light_source = 3
 ambient_light_sky_contribution = 0.1
 fog_mode = 1
@@ -126,6 +125,30 @@ tracks/5/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("log_circle/Fire:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("log_circle/GPUParticles3D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_mpujm"]
 resource_name = "leaving"
@@ -199,7 +222,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_hjump"]
 resource_name = "leaving_setup"
-length = 5.0
+length = 8.0
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -209,7 +232,7 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-18.59987, -0.25, 0, 0.25, 0, -18.59987, -0.083333336, 0, 0, 0, -43.910355, -0.083333336, 4.2184143, 0, 0, -7.7423477, -0.16666667, -13.428953, 0.16666667, 13.428953, 100, -0.16666667, -26.857906, 0, 0, 100, 0, 0, 0, 0, -21.654453, -0.16833338, 23.148588, 0, 0),
-"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -220,7 +243,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.083333336, 0, 0, 0, 0, -0.16666667, 0, 0.16666667, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16833338, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -231,7 +254,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(-206.56029, -0.25, 0, 0.25, 0, -206.56029, -0.083333336, 0, 0, 0, -144.28242, -0.083333336, -10.379644, 0, 0, -74.661385, -0.16666667, -7.02094, 0.16666667, 7.02094, -60.03115, -0.16666667, -14.04188, 0, 0, -60.03115, -0.19999981, -0.04937744, 0, 0, -10.807034, -0.16833338, -8.2040205, 0, 0),
-"times": PackedFloat32Array(0, 0.8666667, 1.7333333, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.8333335, 4.7, 5.833333, 6.633333, 7.4666667, 7.9666667)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -242,7 +265,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -251,9 +274,9 @@ tracks/4/path = NodePath("BoatBG:rotation:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 2, 0, 0, 0),
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(3.1058743, -0.25, 0, 0.06666667, 0.04888177, 3.154756, -0.00165, 0.01185, 0, 0, 1.0845673, -0.16567981, -0.0072910786, 0.13432014, 0.017149806, 2.8614647, -0.39999986, -0.757669, 0.2910443, 0.5512883, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, 2.742227, -0.08139491, 0.14367867, 0.05191527, -0.09164107, -3.053243, -0.16666667, 0.96591175, 0, 0),
-"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -264,7 +287,31 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.083333336, 0, 0, 0, 0, -0.08166667, 0, 0, 0, 0, -0.16833334, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0, 0, -0.16666667, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.5, 0.8666667, 2.8666666, 3.6666667, 4.5, 5)
+"times": PackedFloat32Array(0, 3.4666667, 3.8333335, 5.833333, 6.633333, 7.4666667, 7.9666667)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("log_circle/Fire:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("log_circle/GPUParticles3D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sr8os"]
@@ -323,7 +370,6 @@ transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93
 
 [node name="tree" parent="Trees" unique_id=953250290 instance=ExtResource("7_ax415")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.102858, 0, 1.6764851)
-should_spawn_fruit = true
 
 [node name="tree2" parent="Trees" unique_id=244863639 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -11.336332, 1.4812727, 1.245759)
@@ -354,20 +400,14 @@ transform = Transform3D(-0.7298983, 0, 0.6835559, 0, 1, 0, -0.6835559, 0, -0.729
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1725588, 0.59695613, 12.297435)
 attached_offset = Vector3(0, 3, -3)
 
-[node name="Plank" type="MeshInstance3D" parent="." unique_id=1062777922]
+[node name="plank_mesh" parent="." unique_id=1652033299 instance=ExtResource("10_jr8id")]
 transform = Transform3D(0.8590208, 0, -0.5119406, 0, 1, 0, 0.5119406, 0, 0.8590208, 0.0703419, 0.25593388, 12.853473)
-material_overlay = ExtResource("10_wjfqx")
-mesh = ExtResource("10_wkuwm")
 
-[node name="Plank2" type="MeshInstance3D" parent="." unique_id=1114171641]
+[node name="plank_mesh2" parent="." unique_id=102940989 instance=ExtResource("10_jr8id")]
 transform = Transform3D(0.9644104, 0, 0.26441008, 0.065013215, 0.9693002, -0.23712948, -0.25629273, 0.24588025, 0.93480325, 2.1281905, 0.13288188, 12.445208)
-material_overlay = ExtResource("10_wjfqx")
-mesh = ExtResource("10_wkuwm")
 
-[node name="Plank3" type="MeshInstance3D" parent="." unique_id=1607031054]
+[node name="plank_mesh3" parent="." unique_id=2110488236 instance=ExtResource("10_jr8id")]
 transform = Transform3D(0.9254118, -0.16601294, 0.34066528, 0.1843161, 0.98262453, -0.02183928, -0.3311202, 0.08300034, 0.9399313, 0.33529592, 0.22914791, 12.865815)
-material_overlay = ExtResource("10_wjfqx")
-mesh = ExtResource("10_wkuwm")
 
 [node name="Crate2" parent="." unique_id=1553739965 instance=ExtResource("9_pal10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.516768, 1.8751243, 1.2273672)
@@ -382,9 +422,13 @@ transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375,
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("12_2vh7n")]
 transform = Transform3D(-3.0123982, 0, 0.107643686, 0, 3.01432, 0, -0.107643686, 0, -3.0123982, -18.59987, 0, -206.56029)
+bob_amplitude = 0.1999999999999994
 
-[node name="log_circle" parent="." unique_id=1155332218 instance=ExtResource("15_sr8os")]
+[node name="log_circle" parent="." unique_id=1155332218 node_paths=PackedStringArray("cutscene_controller") instance=ExtResource("15_sr8os")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41813183, 5.222088)
+cutscene_controller = NodePath("../CutsceneController")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=218958646]
 libraries/ = SubResource("AnimationLibrary_sr8os")
+
+[editable path="log_circle"]
