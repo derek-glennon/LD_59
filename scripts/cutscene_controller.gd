@@ -20,12 +20,6 @@ var _ending_started := false
 func _ready() -> void:
 	animation_player.animation_finished.connect(on_animation_done)
 	boat.on_player_entered.connect(on_player_entered_boat)
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_released("DEBUG"):
-		play_leaving_animation()
-	if Input.is_action_just_released("DEBUG2"):
-		return_from_leaving_animation()
 		
 func on_animation_done(anim_name : String) -> void:
 	match anim_name:

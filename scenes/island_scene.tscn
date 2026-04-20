@@ -413,7 +413,7 @@ tracks/9/keys = {
 "times": PackedFloat32Array(0, 8.9, 9.466666),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-20.0, -20.0, -10.000000000000213]
+"values": [-20.0, -20.0, -10.000000000000211]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sr8os"]
@@ -500,7 +500,7 @@ transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50
 transform = Transform3D(-0.9981121, 0, -0.061419666, 0, 1, 0, 0.061419666, 0, -0.9981121, -11.115919, 0.34009326, 8.393693)
 
 [node name="tree4" parent="Trees" unique_id=1339728349 instance=ExtResource("7_ax415")]
-transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 4.1867905, 0.34009326, 10.488681)
+transform = Transform3D(-0.18941471, 0, -0.98189723, 0, 1, 0, 0.98189723, 0, -0.18941471, 6.7766953, 0.34009326, 10.488681)
 
 [node name="tree5" parent="Trees" unique_id=358758512 instance=ExtResource("7_ax415")]
 transform = Transform3D(-0.29743803, 0, 0.9547412, 0, 1, 0, -0.9547412, 0, -0.29743803, 11.499234, 0.34009326, 6.0669427)
