@@ -18,6 +18,5 @@ func _on_log_snap_area_body_entered(body: Node3D) -> void:
 		
 func start_fire() -> void:
 	cutscene_controller.play_leaving_animation()
-	prints("HERE")
 	fire_crackle_audio.play()
 		
