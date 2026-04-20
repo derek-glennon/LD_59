@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://wpxga8rd8y84" path="res://prefabs/log_circle.tscn" id="20_ep8hu"]
 [ext_resource type="Script" uid="uid://7504nsiaar6y" path="res://scripts/constant_size_margin_container.gd" id="21_dlsrp"]
 [ext_resource type="Material" uid="uid://brkn4vsagyyad" path="res://materials/wavy_text.tres" id="22_ml24f"]
+[ext_resource type="Material" uid="uid://diey3g0jj6mi7" path="res://materials/mat_green_screen.tres" id="24_ml24f"]
 [ext_resource type="PackedScene" uid="uid://b0k6h66672itf" path="res://prefabs/beach_ball.tscn" id="27_4qiyi"]
 [ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="29_po6yr"]
 
@@ -67,6 +68,8 @@ font = ExtResource("29_po6yr")
 font_size = 200
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_dlsrp"]
 
 [node name="IslandScene" type="Node3D" unique_id=373182846]
 
@@ -137,6 +140,9 @@ should_spawn_fruit = true
 
 [node name="tree8" parent="Trees" unique_id=1474743497 instance=ExtResource("9_ptf5n")]
 transform = Transform3D(-0.2907467, 0, -0.9568001, 0, 1, 0, 0.9568001, 0, -0.2907467, -7.209098, 2.832192, -8.615587)
+
+[node name="tree9" parent="Trees" unique_id=380305838 instance=ExtResource("9_ptf5n")]
+transform = Transform3D(-0.87509567, 0, -0.053849746, 0, 0.8767509, 0, 0.053849746, 0, -0.87509567, -33.349773, 1.3108463, 8.393693)
 
 [node name="rocks" parent="." unique_id=621823909 instance=ExtResource("10_in67h")]
 transform = Transform3D(-0.7298983, 0, 0.6835559, 0, 1, 0, -0.6835559, 0, -0.7298983, -0.8770497, 0, 0)
@@ -217,6 +223,9 @@ transform = Transform3D(0.13608964, 0, -0.37775183, 0, 0.5068914, 0, 0.35960627,
 [node name="pebble_18" parent="Pebbles" unique_id=1043378620 instance=ExtResource("13_3taet")]
 transform = Transform3D(-0.2616338, 0.46405345, 0.726232, -0.12458848, -0.97450423, 0.34582758, 0.7657306, 1.451837e-08, 0.3044059, -4.835466, 2.8468227, -5.9039307)
 
+[node name="pebble_19" parent="Pebbles" unique_id=1302887945 instance=ExtResource("14_yo3yx")]
+transform = Transform3D(-9.992304, -5.581976, -4.2031164, 2.1357613, 22.723154, -5.8108716, 5.331432, -19.564728, -5.5497622, -24.31736, 6.5076213, 1.2317858)
+
 [node name="Ferns" type="Node3D" parent="." unique_id=385243555]
 
 [node name="fern" parent="Ferns" unique_id=429886961 instance=ExtResource("15_e8drn")]
@@ -278,7 +287,7 @@ transform = Transform3D(0.7667563, 0.12418191, 0.6298124, -0.1598743, 0.9871375,
 script = null
 
 [node name="BoatBG" parent="." unique_id=890121887 instance=ExtResource("19_jjoaj")]
-transform = Transform3D(-1.2644895, 0, 2.7362745, 0, 3.01432, 0, -2.7362745, 0, -1.2644895, 21.313835, 0, -14.11441)
+transform = Transform3D(-1.2644895, 0, 2.7362745, 0, 3.01432, 0, -2.7362745, 0, -1.2644895, 21.313835, 0, -14.076721)
 script = null
 
 [node name="log_circle" parent="." unique_id=1155332218 instance=ExtResource("20_ep8hu")]
@@ -344,4 +353,35 @@ mouse_filter = 0
 text = "Islandia"
 label_settings = SubResource("LabelSettings_4tl2p")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=326004057]
+transform = Transform3D(10.934878, 0, 0, 0, 10.934878, 0, 0, 0, 10.934878, -24.522087, 6.6240616, 0)
+material_override = ExtResource("24_ml24f")
+mesh = SubResource("QuadMesh_dlsrp")
+
+[node name="Player2" parent="." unique_id=1561767513 node_paths=PackedStringArray("island_scene", "camera") instance=ExtResource("8_vove0")]
+transform = Transform3D(-5.6033516, 0, -4.898605e-07, 0, 5.603352, 0, 4.898605e-07, 0, -5.6033516, -42.696674, 6.851528, 0.6482978)
+island_scene = NodePath("..")
+camera = NodePath("../Camera3D")
+should_move_on_ready = false
+
+[node name="shark_rigged2" parent="." unique_id=1770088040 instance=ExtResource("18_lqnev")]
+transform = Transform3D(0.42099234, 0.06818284, 0.9044981, -0.15987429, 0.98713756, -9.353389e-09, -0.89286363, -0.14460595, 0.42647788, -39.833717, 13.397152, 3.066084)
+script = null
+
+[node name="Crate6" parent="." unique_id=775754752 instance=ExtResource("16_q786a")]
+transform = Transform3D(4.5053315, 1.469007, -1.1137722, -1.8434786, 3.5780432, -2.737823, -0.007550723, 2.9556906, 3.8678572, -56.0515, 7.2172194, 1.2273672)
+attached_offset = Vector3(0, 3, -3)
+
+[node name="BoatBG2" parent="." unique_id=1754536997 instance=ExtResource("19_jjoaj")]
+transform = Transform3D(-1.4578795, 0, 0.0035562718, 0, 1.4578832, 0, -0.0035562718, 0, -1.4578795, -66.84937, 5.9515486, 1.5778418)
+script = null
+
+[node name="log_circle2" parent="." unique_id=1393059383 instance=ExtResource("20_ep8hu")]
+transform = Transform3D(3.2210498, 0, -0.12682855, 0, 3.223546, 0, 0.12682855, 0, 3.2210498, -34.907146, 4.67759, 1.00106)
+script = null
+
+[node name="Fire" parent="log_circle2" index="5" unique_id=1616359922]
+visible = true
+
 [editable path="log_circle"]
+[editable path="log_circle2"]
