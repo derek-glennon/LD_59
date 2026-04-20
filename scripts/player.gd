@@ -10,6 +10,7 @@ class_name Player extends CharacterBody3D
 
 @export_category("Movement")
 @export var should_move_on_ready := true
+@export var should_spawn_in_on_ready := false
 @export var move_speed = 5.0
 @export var jump_velocity = 4.5
 
@@ -17,6 +18,7 @@ class_name Player extends CharacterBody3D
 @export var throw_strength = 1000.0
 
 var can_move := true
+var starting_position := Vector3.ZERO
 
 var _interactables_in_range : Array[InteractableBase] = []
 var _trees_in_range : Array[IslandTree] = []
@@ -24,7 +26,18 @@ var _grabbed_interactable : InteractableBase
 
 func _ready() -> void:
 	can_move = should_move_on_ready
-
+	if should_spawn_in_on_ready:
+		starting_position = position
+		position.y += 10.0
+		await get_tree().create_timer(0.5).timeout
+		var spawn_tween = create_tween()
+		spawn_tween.tween_property(self, "position", starting_position, 0.6).from_current()
+		spawn_tween.finished.connect(on_spawn_done)
+		
+func on_spawn_done() -> void:
+	can_move = true
+	camera.reparent(self)
+	
 func _physics_process(delta: float) -> void:
 	if can_move:
 		# Player Rotation

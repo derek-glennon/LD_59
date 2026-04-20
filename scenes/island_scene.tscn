@@ -337,7 +337,7 @@ light_cull_mask = 4294967293
 [node name="CutsceneController" type="Node3D" parent="." unique_id=536758914 node_paths=PackedStringArray("animation_player", "camera", "player", "boat", "leaving_camera_point")]
 script = ExtResource("4_hjump")
 animation_player = NodePath("../AnimationPlayer")
-camera = NodePath("../Player/Camera3D")
+camera = NodePath("../Camera3D")
 player = NodePath("../Player")
 boat = NodePath("../BoatBG")
 leaving_camera_point = NodePath("LeavingAnimationCameraPoint")
@@ -358,13 +358,15 @@ transform = Transform3D(0.0017133614, 0, 0, 0, 0.0017133614, 0, 0, 0, 0.00171336
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.26147175, 0)
 shape = SubResource("WorldBoundaryShape3D_g1j5r")
 
-[node name="Player" parent="." unique_id=2113885086 node_paths=PackedStringArray("island_scene", "camera") instance=ExtResource("5_37q66")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15561, 0.74721193, 12.256225)
-island_scene = NodePath("..")
-camera = NodePath("Camera3D")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=34050]
+transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -1.8936765, 2.204842, 16.337706)
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=34050]
-transform = Transform3D(1, 0, 0, 0, 0.93145514, 0.36385623, 0, -0.36385623, 0.93145514, -3.0559022e-10, 1.45763, 2.3734)
+[node name="Player" parent="." unique_id=2113885086 node_paths=PackedStringArray("island_scene", "camera") instance=ExtResource("5_37q66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8936765, 0.74721193, 13.964305)
+island_scene = NodePath("..")
+camera = NodePath("../Camera3D")
+should_move_on_ready = false
+should_spawn_in_on_ready = true
 
 [node name="Trees" type="Node3D" parent="." unique_id=1326531027]
 
