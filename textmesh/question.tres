@@ -1,0 +1,8 @@
+[gd_resource type="TextMesh" format=3 uid="uid://yfq8dms3y7fa"]
+
+[ext_resource type="FontFile" uid="uid://nimjxq4qlcmd" path="res://fonts/PIXELIFYSANS-VARIABLEFONT_WGHT.TTF" id="1_bdrjd"]
+
+[resource]
+text = "...?"
+font = ExtResource("1_bdrjd")
+depth = 0.02

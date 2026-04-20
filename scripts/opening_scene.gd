@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var opening_cutscene_manager : OpeningCutsceneManager
+
 enum CurrentMenuOption {
 	NONE,
 	START,
@@ -11,7 +13,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Click"):
 		match current_menu_option:
 			CurrentMenuOption.START:
-				get_tree().change_scene_to_file("res://scenes/island_scene.tscn")
+				opening_cutscene_manager.play_opening_animation()
 			CurrentMenuOption.QUIT:
 				get_tree().quit()
 
